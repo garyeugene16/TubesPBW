@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Guest Home</title>
+</head>
+<body>
+    <h1>Welcome, Guest!</h1>
+
+    <div>
+        <h2>Search Artists</h2>
+        <form action="/guest/search/artists" method="get">
+            <input type="text" name="query" placeholder="Search for artists">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>Search Shows</h2>
+        <form action="/guest/search/shows" method="get">
+            <input type="text" name="query" placeholder="Search for shows">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>Artists</h2>
+        <div>
+            <ul>
+                <li th:each="artist : ${artists}">
+                    <p th:text="${artist.name}"></p>
+                    <p th:text="${artist.description}"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <h2>Upcoming Shows</h2>
+        <div>
+            <ul>
+                <li th:each="show : ${shows}">
+                    <p th:text="${show.name}"></p>
+                    <p th:text="${show.date}"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

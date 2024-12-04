@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+<body>
+    <h1>Search for Artists, Shows, and Setlists</h1>
+
+    <!-- Search Form -->
+    <form action="/guest/search/artists" method="get">
+        <input type="text" name="query" placeholder="Search Artists" />
+        <button type="submit">Search Artists</button>
+    </form>
+
+    <form action="/guest/search/shows" method="get">
+        <input type="text" name="query" placeholder="Search Shows" />
+        <button type="submit">Search Shows</button>
+    </form>
+
+    <form action="/guest/search/setlists" method="get">
+        <input type="text" name="query" placeholder="Search Setlists" />
+        <button type="submit">Search Setlists</button>
+    </form>
+
+    <!-- Display Search Results -->
+    <h2>Artists</h2>
+    <div>
+        <ul>
+            <li th:each="artist : ${artists}">
+                <p th:text="${artist.name}"></p>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Shows</h2>
+    <div>
+        <ul>
+            <li th:each="show : ${shows}">
+                <p th:text="${show.name}"></p>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Setlists</h2>
+    <div>
+        <ul>
+            <li th:each="setlist : ${setlists}">
+                <p th:text="${setlist.songTitle}"></p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
