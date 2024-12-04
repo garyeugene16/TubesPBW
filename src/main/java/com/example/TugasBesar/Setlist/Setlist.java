@@ -1,23 +1,13 @@
-@Entity
-@Table(name = "setlists")
+package com.example.TugasBesar.Setlist;
+
+import lombok.Data;
+
+@Data
 public class Setlist {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer setlistId;
-
-    @ManyToOne
-    @JoinColumn(name = "show_id", referencedColumnName = "show_id", nullable = false)
-    private Show show;
-
-    private Integer songOrder;
-
-    private String songTitle;
-
-    @ManyToOne
-    @JoinColumn(name = "created_by", referencedColumnName = "user_id", nullable = true)
-    private User createdBy;
-
-    private Timestamp createdAt;
-
-    // Getters and setters
+    private final int setlist_id;
+    private final int show_id;
+    private final int song_order;
+    private final String song_title;
+    private final int created_by;
+    private final String created_at;
 }

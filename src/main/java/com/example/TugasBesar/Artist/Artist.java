@@ -1,17 +1,11 @@
-@Entity
-@Table(name = "artists")
+package com.example.TugasBesar.Artist;
+
+import lombok.Data;
+
+@Data
 public class Artist {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer artistId;
-
-    private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "created_by", referencedColumnName = "user_id", nullable = true)
-    private User createdBy;
-
-    private Timestamp createdAt;
-
-    // Getters and setters
+    private final int artist_id;
+    private final String name;
+    private final int created_by;
+    private final String created_at;
 }
