@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pencarian - Set List Konser</title>
-  <link rel="stylesheet" href="../static/css/search.css">
+  <link rel="stylesheet" href="/css/search.css">
 </head>
 <body>
   <header>
@@ -19,18 +19,47 @@
   </header>
   <section class="search-bar">
     <h1>Cari Artis, Konser, atau Lagu</h1>
-    <input type="text" id="searchInput" placeholder="Masukkan nama artis, konser, atau lagu..." />
-    <button id="searchButton">Cari</button>
+    <form action="/search" method="get">
+      <input type="text" name="query" th:value="${query}" placeholder="Masukkan nama artis, konser, atau lagu..." />
+      <button type="submit">Cari</button>
+    </form>
   </section>
   <section class="search-results">
     <h2>Hasil Pencarian</h2>
-    <div id="resultsContainer" class="grid">
-      <!-- Hasil pencarian akan dimasukkan di sini oleh JavaScript -->
+    
+    <!-- Hasil Pencarian Artist -->
+    <h3>Artis</h3>
+    <div class="grid">
+      <div th:if="${artists != null && !artists.empty}">
+        <div th:each="artist : ${artists}" class="card artist-card">
+          <h4 th:text="${artist.name}">Nama Artis</h4>
+          <p th:text="'ID: ' + ${artist.artist_id}">ID Artis</p>
+          <p th:text="'Dibuat pada: ' + ${artist.created_at}">Tanggal Pembuatan</p>
+        </div>
+      </div>
+      <div th:if="${artists != null && artists.empty}">
+        <p>Tidak ada artis yang ditemukan.</p>
+      </div>
+    </div>
+
+    <!-- Hasil Pencarian Show -->
+    <h3>Konser</h3>
+    <div class="grid">
+      <div th:if="${shows != null && !shows.empty}">
+        <div th:each="show : ${shows}" class="card show-card">
+          <h4 th:text="${show.venue}">Tempat Konser</h4>
+          <p th:text="'Artis: ' + ${show.artist_name}">Nama Artis</p>
+          <p th:text="'Tanggal: ' + ${show.date}">Tanggal Konser</p>
+          <p th:text="'Dibuat pada: ' + ${show.created_at}">Tanggal Pembuatan</p>
+        </div>
+      </div>
+      <div th:if="${shows != null && shows.empty}">
+        <p>Tidak ada konser yang ditemukan.</p>
+      </div>
     </div>
   </section>
   <footer>
     <p>&copy; 2024 SetListKonser. All Rights Reserved.</p>
   </footer>
-  <script src="../static/scripts/search.js"></script>
 </body>
 </html>

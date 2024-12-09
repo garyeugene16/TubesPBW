@@ -85,7 +85,7 @@ header nav a:hover {
 }
 .search-results .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   justify-items: center;
 }
@@ -117,4 +117,33 @@ footer {
   text-align: center;
   padding: 10px;
   font-size: 0.9rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.artist-card {
+  border-left: 4px solid #4CAF50;
+}
+
+.show-card {
+  border-left: 4px solid #2196F3;
+}
+
+h3 {
+  margin: 20px 0 10px 20px;
+  color: #333;
 }

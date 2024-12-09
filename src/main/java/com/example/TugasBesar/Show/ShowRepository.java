@@ -38,6 +38,24 @@ public class ShowRepository {
         return jdbcTemplate.update(sql, id);
     }
 
+    public List<ShowWithArtist> findAllWithArtist() {
+        String sql = "SELECT s.*, a.name as artist_name FROM shows s " +
+                    "JOIN artists a ON s.artist_id = a.artist_id";
+        return jdbcTemplate.query(sql, this::mapRowToShowWithArtist);
+    }
+
+    private ShowWithArtist mapRowToShowWithArtist(ResultSet resultSet, int rowNum) throws SQLException {
+        return new ShowWithArtist(
+            resultSet.getInt("show_id"),
+            resultSet.getInt("artist_id"),
+            resultSet.getString("artist_name"),
+            resultSet.getString("venue"),
+            resultSet.getString("date"),
+            resultSet.getInt("created_by"),
+            resultSet.getString("created_at")
+        );
+    }
+
     private Show mapRowToShow(ResultSet resultSet, int rowNum) throws SQLException {
         return new Show(
             resultSet.getInt("show_id"),

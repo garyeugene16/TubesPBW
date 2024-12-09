@@ -29,4 +29,8 @@ public class ShowService {
     public int deleteShow(int id) {
         return showRepository.deleteById(id);
     }
+
+    public List<ShowWithArtist> getAllShowsWithArtist() {
+        return showRepository.findAllWithArtist();
+    }
 }
