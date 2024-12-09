@@ -10,4 +10,5 @@ public class Show {
     private final String date;
     private final int created_by;
     private final String created_at;
+    private final String name;
 }

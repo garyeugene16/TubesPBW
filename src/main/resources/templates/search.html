@@ -4,33 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pencarian - Set List Konser</title>
-  <link rel="stylesheet" href="../static/css/search.css">
+  <link rel="stylesheet" href="/css/search.css">
 </head>
 <body>
   <header>
     <div class="logo">SetListKonser</div>
     <nav>
       <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="search.html">Cari</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li><a href="home">Home</a></li>
+        <li><a href="search">Cari</a></li>
+        <li><a href="login">Login</a></li>
       </ul>
     </nav>
   </header>
+
   <section class="search-bar">
     <h1>Cari Artis, Konser, atau Lagu</h1>
-    <input type="text" id="searchInput" placeholder="Masukkan nama artis, konser, atau lagu..." />
-    <button id="searchButton">Cari</button>
-  </section>
-  <section class="search-results">
-    <h2>Hasil Pencarian</h2>
-    <div id="resultsContainer" class="grid">
-      <!-- Hasil pencarian akan dimasukkan di sini oleh JavaScript -->
-    </div>
-  </section>
+    <form method="POST" action="/search">
+        <input type="text" name="keyword" placeholder="Masukkan nama artis, konser, atau lagu..." required />
+        <button type="submit">Cari</button>
+    </form>
+</section>
+
+<section class="search-results">
+  <h2>Hasil Pencarian</h2>
+  <div class="grid">
+      <!-- Menampilkan hasil pencarian -->
+      <ul>
+          <li th:each="show : ${shows}">
+              <div class="card">
+                  <h3 th:text="${show.venue}">Nama Show</h3>
+                  <p>Artis: <span th:text="${show.name}">Nama Artis</span></p>
+                  <!-- <a th:href="@{/show/{id}(id=${show.show_id})}">Lihat Detail</a> -->
+                  <a th:href="@{/show?id=${show.show_id}}">Lihat Detail</a>
+              </div>
+          </li>
+      </ul>
+  </div>
+</section>
+
   <footer>
     <p>&copy; 2024 SetListKonser. All Rights Reserved.</p>
   </footer>
-  <script src="../static/scripts/search.js"></script>
+  <script src="/scripts/search.js"></script>
 </body>
 </html>

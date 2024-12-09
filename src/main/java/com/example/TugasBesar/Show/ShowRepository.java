@@ -45,7 +45,8 @@ public class ShowRepository {
             resultSet.getString("venue"),
             resultSet.getString("date"),
             resultSet.getInt("created_by"),
-            resultSet.getString("created_at")
+            resultSet.getString("created_at"),
+            resultSet.getString("name")
         );
     }
 }
