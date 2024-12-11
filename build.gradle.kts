@@ -31,7 +31,6 @@ dependencies {
 	runtimeOnly("org.postgresql:postgresql")
 	// Gatau
     implementation("org.postgresql:postgresql")
-	implementation("org.projectlombok:lombok")
 }
 
 tasks.withType<Test> {

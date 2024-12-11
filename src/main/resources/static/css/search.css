@@ -78,6 +78,7 @@ header nav a:hover {
 .search-results {
   padding: 40px 20px;
 }
+
 .search-results h2 {
   font-size: 1.5rem;
   text-align: center;
@@ -96,6 +97,7 @@ header nav a:hover {
   width: 200px;
   text-align: center;
   transition: box-shadow 0.3s;
+  margin: 15px;
 }
 .search-results .card img {
   width: 100%;

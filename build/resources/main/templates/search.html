@@ -32,12 +32,13 @@
       <!-- Menampilkan hasil pencarian -->
       <ul>
           <li th:each="show : ${shows}">
+            <a th:href="@{/show?id={showId}(showId=${show.show_id})}">
               <div class="card">
                   <h3 th:text="${show.venue}">Nama Show</h3>
                   <p>Artis: <span th:text="${show.name}">Nama Artis</span></p>
-                  <!-- <a th:href="@{/show/{id}(id=${show.show_id})}">Lihat Detail</a> -->
-                  <a th:href="@{/show?id=${show.show_id}}">Lihat Detail</a>
+                  <!-- <a th:href="@{/show?id={showId}(showId=${show.show_id})}">Lihat Detail</a> -->
               </div>
+            </a>
           </li>
       </ul>
   </div>

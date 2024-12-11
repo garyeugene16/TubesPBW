@@ -20,10 +20,10 @@
 
   <section class="show-detail">
     <!-- Tampilkan detail show yang dipilih -->
-    <h1 th:text="${shows.venue}">Venue</h1>
-    <p>Artis: <span th:text="${shows.artistName}">Artist Name</span></p>
-    <p>Tanggal: <span th:text="${shows.date}">Date</span></p>
-    <p>Dibuat oleh: <span th:text="${shows.created_by}">Creator</span></p>
+    <h1 th:text="${show.venue}">Venue</h1>
+    <p>Artis: <span th:text="${show.name}">Artist Name</span></p>
+    <p>Tanggal: <span th:text="${show.date}">Date</span></p>
+    <p>Dibuat oleh: <span th:text="${show.created_by}">Creator</span></p>
 
     <h2>Setlist</h2>
     <ul>

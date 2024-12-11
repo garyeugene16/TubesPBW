@@ -19,6 +19,11 @@ public class GuestController {
     private GuestService guestService;
 
     @GetMapping("/")
+    public String index () {
+        return "home";
+    }
+
+    @GetMapping("/home")
     public String home () {
         return "home";
     }
@@ -38,7 +43,7 @@ public class GuestController {
     }
      
     @GetMapping("/show")
-    public String getShowDetails(@RequestParam("show_id") int show_id, Model model) {
+    public String getShowDetails(@RequestParam("id") int show_id, Model model) {
         Show show = guestService.getShowDetails(show_id); // Memanggil layanan untuk mendapatkan show
         List<Setlist> setlist = guestService.getSetlistByShowId(show_id); // Mendapatkan setlist show
         model.addAttribute("show", show);
