@@ -44,7 +44,7 @@ public class JdbcGuestRepository implements GuestRepository {
             resultSet.getInt("artist_id"),
             resultSet.getString("venue"),
             resultSet.getString("date"),
-            resultSet.getInt("created_by"),
+            resultSet.getString("created_by"),
             resultSet.getString("created_at"),
             resultSet.getString("name")
         );     
@@ -56,7 +56,7 @@ public class JdbcGuestRepository implements GuestRepository {
             resultSet.getInt("show_id"),
             resultSet.getInt("song_order"),
             resultSet.getString("song_title"),
-            resultSet.getInt("created_by"),
+            resultSet.getString("created_by"),
             resultSet.getString("created_at")
         );     
     }

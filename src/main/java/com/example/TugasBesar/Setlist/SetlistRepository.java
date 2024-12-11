@@ -44,7 +44,7 @@ public class SetlistRepository {
             resultSet.getInt("show_id"),
             resultSet.getInt("song_order"),
             resultSet.getString("song_title"),
-            resultSet.getInt("created_by"),
+            resultSet.getString("created_by"),
             resultSet.getString("created_at")
         );
     }

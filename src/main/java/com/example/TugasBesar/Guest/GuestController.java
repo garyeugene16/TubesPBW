@@ -18,16 +18,6 @@ public class GuestController {
     @Autowired
     private GuestService guestService;
 
-    @GetMapping("/")
-    public String index () {
-        return "home";
-    }
-
-    @GetMapping("/home")
-    public String home () {
-        return "home";
-    }
-
      // Endpoint pencarian berdasarkan nama artis
     @GetMapping("/search")
     public String searchByArtist(Model model) {
