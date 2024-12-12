@@ -8,6 +8,7 @@ public class Show {
     private final int artist_id;
     private final String venue;
     private final String date;
-    private final int created_by;
+    private final String created_by;
     private final String created_at;
+    private final String name;
 }

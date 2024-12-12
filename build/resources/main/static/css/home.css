@@ -55,10 +55,12 @@ header nav a:hover {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: black;
 }
-.hero p {
-  font-size: 1.2rem;
+.hero h2 {
+  font-size: 2.0rem;
   margin-bottom: 20px;
+  color: black;
 }
 .hero button {
   background: #f90;

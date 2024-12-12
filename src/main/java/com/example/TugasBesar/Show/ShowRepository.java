@@ -44,8 +44,9 @@ public class ShowRepository {
             resultSet.getInt("artist_id"),
             resultSet.getString("venue"),
             resultSet.getString("date"),
-            resultSet.getInt("created_by"),
-            resultSet.getString("created_at")
+            resultSet.getString("created_by"),
+            resultSet.getString("created_at"),
+            resultSet.getString("name")
         );
     }
 }
