@@ -102,7 +102,7 @@ button:hover {
   margin-top: 10px;
   font-size: 0.9rem;
 }
-#toggleText span {
+#toggleText a {
   color: #f90;
   cursor: pointer;
   text-decoration: underline;

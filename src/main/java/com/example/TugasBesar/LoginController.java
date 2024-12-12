@@ -44,7 +44,7 @@ public class LoginController {
     public String index (HttpSession session, Model model){
         User user = (User) session.getAttribute("user");
         model.addAttribute("user", user);
-        return "dashboard";
+        return "home";
     }
 
 

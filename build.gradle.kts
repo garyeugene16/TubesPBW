@@ -31,6 +31,8 @@ dependencies {
 	runtimeOnly("org.postgresql:postgresql")
 	// Gatau
     implementation("org.postgresql:postgresql")
+	implementation("org.springframework.boot:spring-boot-starter-aop")
+
 }
 
 tasks.withType<Test> {
