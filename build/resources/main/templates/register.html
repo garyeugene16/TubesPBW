@@ -7,16 +7,9 @@
   <link rel="stylesheet" href="/css/register.css">
 </head>
 <body>
-  <header>
-    <div class="logo">SetListKonser</div>
-    <nav>
-      <ul>
-        <li><a href="home">Home</a></li>
-        <li><a href="search">Cari</a></li>
-        <li><a href="login">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
+  
   <main class="auth-container">
     <div class="form-container">
       <h1 id="formTitle">Register</h1>
@@ -49,8 +42,8 @@
       </form>
     </div>
   </main>
-  <footer>
-    <p>&copy; 2024 SetListKonser. All Rights Reserved.</p>
-  </footer>
+  <br>
+  <!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
 </body>
 </html>

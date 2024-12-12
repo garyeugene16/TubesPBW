@@ -8,16 +8,7 @@
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <div class="logo">Setlist Manager</div>
-    <nav>
-      <ul>
-        <li><a href="index">Home</a></li>
-        <li><a href="search">Cari</a></li>
-        <li><a href="add_data">Add Data</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div th:replace="~{guest/fragment/header :: header}"></div>
 
   <!-- Add Data Section -->
   <section class="add-data">
@@ -103,9 +94,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Setlist Manager. All Rights Reserved.</p>
-  </footer>
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
 
   <script src="../static/scripts/add_data.js"></script>
 </body>

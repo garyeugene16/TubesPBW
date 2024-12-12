@@ -7,16 +7,10 @@
   <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-  <header>
-    <div class="logo">SetListKonser</div>
-    <nav>
-      <ul>
-        <li><a href="index">Home</a></li>
-        <li><a href="search">Cari</a></li>
-        <li><a href="login">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
+
+  <!-- Main -->
   <section class="hero">
     <h1>Temukan Set List Konser Favoritmu!</h1>
     <h2>Cari Artis Favoritmu!</h2>
@@ -39,9 +33,10 @@
       </div>
     </div>
   </section>
-  <footer>
-    <p>&copy; 2024 SetListKonser. All Rights Reserved.</p>
-  </footer>
+
+  <!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
+
   <script src="scripts/home.js"></script>
 </body>
 </html>
