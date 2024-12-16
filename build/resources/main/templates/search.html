@@ -7,16 +7,8 @@
   <link rel="stylesheet" href="/css/search.css">
 </head>
 <body>
-  <header>
-    <div class="logo">SetListKonser</div>
-    <nav>
-      <ul>
-        <li><a href="home">Home</a></li>
-        <li><a href="search">Cari</a></li>
-        <li><a href="login">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
 
   <section class="search-bar">
     <h1>Cari Artis, Konser, atau Lagu</h1>
@@ -44,9 +36,8 @@
   </div>
 </section>
 
-  <footer>
-    <p>&copy; 2024 SetListKonser. All Rights Reserved.</p>
-  </footer>
+  <!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
   <script src="/scripts/search.js"></script>
 </body>
 </html>

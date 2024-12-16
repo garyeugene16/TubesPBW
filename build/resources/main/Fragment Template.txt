@@ -1,0 +1,8 @@
+Contoh File Path : guest/fragment/header
+
+<!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
+
+Contoh File Path : guest/fragment/footer
+<!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
