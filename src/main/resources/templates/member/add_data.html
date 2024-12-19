@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Data</title>
+  <link rel="stylesheet" href="/css/add_data.css">
+</head>
+<body>
+  <!-- Header -->
+  <div th:replace="~{member/fragment/header :: header}"></div>
+
+  <!-- Add Data Section -->
+  <section class="add-data">
+    <div class="form-container">
+      <h1>Add New Data</h1>
+
+      <!-- Buttons to Switch Forms -->
+      <div class="button-group">
+        <button id="btn-add-artist">Add Artist</button>
+        <button id="btn-add-show">Add Show</button>
+        <button id="btn-add-setlist">Add Setlist</button>
+      </div>
+
+      <!-- Add Artist Form -->
+      <form id="add-artist-form" class="hidden">
+        <h2>Add Artist</h2>
+        <label for="artist-name">Artist Name:</label>
+        <input type="text" id="artist-name" required>
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- Add Show Form -->
+      <!-- <form id="add-show-form" class="hidden">
+        <h2>Add Show</h2>
+        <label for="artist-id">Artist ID:</label>
+        <input type="text" id="artist-id" required>
+        <label for="venue">Venue:</label>
+        <input type="text" id="venue" required>
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+        <button type="submit">Submit</button>
+      </form> -->
+
+      <!-- Add Setlist Form -->
+      <!-- <form id="add-setlist-form" class="hidden">
+        <h2>Add Setlist</h2>
+        <label for="show-id">Show ID:</label>
+        <input type="text" id="show-id" required>
+        <label for="song-title">Song Title:</label>
+        <input type="text" id="song-title" required>
+        <label for="proof">Proof (optional):</label>
+        <input type="file" id="proof" accept="image/*">
+        <button type="submit">Submit</button>
+      </form> -->
+
+      <!-- Add Show Form -->
+        <form id="add-show-form" class="hidden">
+            <h2>Add Show</h2>
+            <label for="artist-id">Select Artist:</label>
+            <select id="artist-id" required>
+            <option value="" disabled selected>Select an Artist</option>
+            <!-- Artist options will be added dynamically -->
+            </select>
+        
+            <label for="venue">Venue:</label>
+            <input type="text" id="venue" required>
+        
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+        
+            <button type="submit">Submit</button>
+        </form>
+  
+        <!-- Add Setlist Form -->
+        <form id="add-setlist-form" class="hidden">
+            <h2>Add Setlist</h2>
+            <label for="show-id">Select Show:</label>
+            <select id="show-id" required>
+            <option value="" disabled selected>Select a Show</option>
+            <!-- Show options will be added dynamically -->
+            </select>
+        
+            <label for="song-title">Song Title:</label>
+            <input type="text" id="song-title" required>
+        
+            <label for="proof">Proof (optional):</label>
+            <input type="file" id="proof" accept="image/*">
+        
+            <button type="submit">Submit</button>
+        </form>
+  
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div th:replace="~{member/fragment/footer :: footer}"></div>
+
+  <script src="../static/scripts/add_data.js"></script>
+</body>
+</html>

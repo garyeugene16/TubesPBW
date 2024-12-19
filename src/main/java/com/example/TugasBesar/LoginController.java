@@ -17,12 +17,23 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    // @GetMapping("/login")
+    // public String loginView(HttpSession session){
+    //     if (session.getAttribute("user") != null) {
+    //         return "redirect:/dashboard";
+    //     }
+    //     return "login";
+    // }
+
     @GetMapping("/login")
-    public String loginView(HttpSession session){
-        if (session.getAttribute("user") != null) {
-            return "redirect:/dashboard";
+    public String loginView(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+
+        if (user != null && "member".equals(user.getRole())) {
+            return "redirect:/member/dashboard"; // Jika sudah login sebagai member, otomatis redirect ke dashboard member apabila menekan tombol 'Login'
         }
-        return "login";
+
+        return "login"; // Tampilkan halaman login untuk user yang belum login
     }
 
     @PostMapping("/login")
@@ -39,14 +50,30 @@ public class LoginController {
         }
     }
 
+    // @GetMapping("/dashboard")
+    // @RequiredRole("*")
+    // public String index (HttpSession session, Model model){
+    //     User user = (User) session.getAttribute("user");
+    //     model.addAttribute("user", user);
+    //     return "home";
+    // }
+    
     @GetMapping("/dashboard")
-    @RequiredRole("*")
-    public String index (HttpSession session, Model model){
+    public String dashboard(HttpSession session, Model model) {
         User user = (User) session.getAttribute("user");
-        model.addAttribute("user", user);
-        return "home";
-    }
 
+        if (user == null || "guest".equals(user.getRole())) {
+            return "home"; // Redirect ke halaman guest untuk user tanpa login
+        }
+
+        // Redirect berdasarkan role
+        if ("member".equals(user.getRole())) {
+            return "redirect:/member/dashboard"; // Redirect ke dashboard member
+        }
+
+        // Role lain, arahkan ke halaman default
+        return "redirect:/";
+    }
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {

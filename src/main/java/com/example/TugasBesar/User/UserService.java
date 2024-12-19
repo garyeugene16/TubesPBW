@@ -14,17 +14,31 @@ public class UserService {
      @Autowired
     private PasswordEncoder passwordEncoder;
 
+    // public boolean register(User user) throws Exception {
+    //     user.setPassword(passwordEncoder.encode(user.getPassword())); // Enkripsi password
+    //     try {
+    //         userRepository.save(user);
+    //         return true;
+    //     } catch (Exception e) {
+    //         return false;
+    //     }
+    // }
+
+    // Default Role = 'Member' ketika Register
     public boolean register(User user) throws Exception {
-        user.setPassword(passwordEncoder.encode(user.getPassword())); // Enkripsi password
+        // Set role default
+        user.setRole("member");
+        // Hash password
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        // Simpan ke repository
         try {
-            userRepository.save(user);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+                userRepository.save(user);
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
     }
 
-    
     public boolean checkUsername(String username){
         if(!userRepository.findByUsername(username).isEmpty()){
             return true;
