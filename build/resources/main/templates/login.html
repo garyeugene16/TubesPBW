@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Registrasi - Set List Konser</title>
+  <link rel="stylesheet" href="/css/login.css">
+  <!-- <link rel="stylesheet" href="../static/css/login.css"> -->
+</head>
+<body>
+  <!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
+
+  <main class="auth-container">
+    <div class="form-container">
+      <h1 id="formTitle">Login</h1>
+      <form id="authForm" action="login" method="post">
+        <div class="input-group">
+          <label for="username">Username:</label>
+          <input name="username" type="text" id="username" placeholder="Masukkan username" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password:</label>
+          <input name="password" type="password" id="password" placeholder="Masukkan password" required>
+        </div>
+        <button type="submit" id="submitButton">Login</button>
+        <p id="toggleText">
+          Belum punya akun? <a href="register" id="toggleForm">Daftar sekarang</a>
+        </p>        
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
+
+  <script src="../static/scripts/login.js"></script>
+</body>
+</html>

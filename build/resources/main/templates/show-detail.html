@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Show - Set List Konser</title>
+  <link rel="stylesheet" href="/css/show-detail.css">
+</head>
+<body>
+  <!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
+
+  <section class="show-detail">
+    <!-- Tampilkan detail show yang dipilih -->
+    <h1 th:text="${show.venue}">Venue</h1>
+    <p>Artis: <span th:text="${show.name}">Artist Name</span></p>
+    <p>Tanggal: <span th:text="${show.date}">Date</span></p>
+    <p>Dibuat oleh: <span th:text="${show.created_by}">Creator</span></p>
+
+    <h2>Setlist</h2>
+    <ul>
+        <li th:each="song : ${setlist}" th:text="${song.song_title}">Song Title</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
+</body>
+</html>
