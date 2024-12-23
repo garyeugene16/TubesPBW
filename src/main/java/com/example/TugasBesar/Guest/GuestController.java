@@ -18,10 +18,20 @@ public class GuestController {
     @Autowired
     private GuestService guestService;
 
+    @GetMapping("/home")
+    public String home() {
+        return "guest/home"; // Menampilkan halaman home untuk guest
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "guest/home"; // Default home untuk guest
+    }
+
      // Endpoint pencarian berdasarkan nama artis
     @GetMapping("/search")
     public String searchByArtist(Model model) {
-        return "search"; // Template untuk hasil pencarian
+        return "guest/search"; // Template untuk hasil pencarian
     }
 
     @PostMapping("/search")
@@ -29,7 +39,7 @@ public class GuestController {
         List<Show> shows = guestService.searchShowsByArtist(keyword);
         model.addAttribute("keyword", keyword);
         model.addAttribute("shows", shows);
-        return "search"; // Template untuk hasil pencarian
+        return "guest/search"; // Template untuk hasil pencarian
     }
      
     @GetMapping("/show")
@@ -38,7 +48,13 @@ public class GuestController {
         List<Setlist> setlist = guestService.getSetlistByShowId(show_id); // Mendapatkan setlist show
         model.addAttribute("show", show);
         model.addAttribute("setlist", setlist);
-        return "show-detail"; // Template untuk detail show
+        return "guest/show-detail"; // Template untuk detail show
     }
+
+    @GetMapping("/add-data")
+    public String addData(Model model) {
+        return "member/add-data"; // Template untuk hasil pencarian
+    }
+
 
 }

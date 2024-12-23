@@ -17,7 +17,7 @@ public class JdbcUserRepository implements UserRepository {
 
     public void save(User user) throws Exception{
         String sql = "INSERT INTO users (username, password, role, name) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), user.getRole(), user.getName());
+        jdbcTemplate.update(sql, user.getUsername(), user.getPassword(), "member", user.getName());
     }
 
     public Optional<User> findByUsername(String username) {
