@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TugasBesar.TugasBesarApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-19T06:00:57" hostname="JAY" time="0.609">
+<testsuite name="com.example.TugasBesar.TugasBesarApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-23T16:17:29" hostname="LEGION-YOO" time="0.795">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.TugasBesar.TugasBesarApplicationTests" time="0.609"/>
-  <system-out><![CDATA[13:00:55.028 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.TugasBesar.TugasBesarApplicationTests]: TugasBesarApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-13:00:55.148 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.TugasBesar.TugasBesarApplication for test class com.example.TugasBesar.TugasBesarApplicationTests
+  <testcase name="contextLoads()" classname="com.example.TugasBesar.TugasBesarApplicationTests" time="0.795"/>
+  <system-out><![CDATA[23:17:26.291 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.TugasBesar.TugasBesarApplicationTests]: TugasBesarApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:17:26.464 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.TugasBesar.TugasBesarApplication for test class com.example.TugasBesar.TugasBesarApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,9 +14,9 @@
 
  :: Spring Boot ::                (v3.4.0)
 
-2024-12-19T13:00:55.508+07:00  INFO 16904 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Starting TugasBesarApplicationTests using Java 17.0.12 with PID 16904 (started by Jay in C:\Users\Jay\Desktop\Programming\Pemograman Berbasis Web\Tugas Besar PBW\Tugas Besar PBW\TubesPBW)
-2024-12-19T13:00:55.508+07:00  INFO 16904 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : No active profile set, falling back to 1 default profile: "default"
-2024-12-19T13:00:57.046+07:00  INFO 16904 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Started TugasBesarApplicationTests in 1.76 seconds (process running for 2.764)
+2024-12-23T23:17:27.014+07:00  INFO 32040 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Starting TugasBesarApplicationTests using Java 17.0.6 with PID 32040 (started by Rio in C:\Users\Rio\Desktop\KULIAH\Sem 5\2. PBW\TubesPBW\TubesPBW)
+2024-12-23T23:17:27.017+07:00  INFO 32040 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2024-12-23T23:17:29.288+07:00  INFO 32040 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Started TugasBesarApplicationTests in 2.585 seconds (process running for 4.2)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
