@@ -58,6 +58,6 @@ public class UserController {
 
     @GetMapping("/results")
     public String resultsView(){
-        return "results";
+        return "member/home-member";
     }
 }

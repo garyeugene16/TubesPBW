@@ -40,18 +40,18 @@ public class LoginController {
     }
 
     @GetMapping("/dashboard")
-    @RequiredRole("*")
+    @RequiredRole(value = "member")
     public String index (HttpSession session, Model model){
         User user = (User) session.getAttribute("user");
         model.addAttribute("user", user);
-        return "home";
+        return "member/home-member";
     }
 
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // Menghapus session
-        return "redirect:/login"; // Redirect ke halaman login setelah logout
+        return "redirect:/home"; // Redirect ke halaman login setelah logout
     }
 
 }
