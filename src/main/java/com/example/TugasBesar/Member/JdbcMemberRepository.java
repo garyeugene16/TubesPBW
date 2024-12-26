@@ -36,6 +36,16 @@ public class JdbcMemberRepository implements MemberRepository {
         String sql = "SELECT * FROM setlists WHERE show_id = ?";
         return jdbcTemplate.query(sql, this::mapRowToSetlist, show_id);
     }
+
+    private Member mapRowToMember(ResultSet resultSet, int rowNum) throws SQLException {
+        return new Member(
+            resultSet.getString("username"),
+            resultSet.getString("password"),
+            resultSet.getString("password"),
+            resultSet.getString("name"),
+            resultSet.getString("role")
+        );
+    }
     
     private Show mapRowToShow(ResultSet resultSet, int rowNum) throws SQLException {
         return new Show(

@@ -12,7 +12,7 @@
 
   <section class="search-bar">
     <h1>Cari Artis, Konser, atau Lagu</h1>
-    <form method="POST" action="/search">
+    <form method="POST" action="/member/search">
         <input type="text" name="keyword" placeholder="Masukkan nama artis, konser, atau lagu..." required />
         <button type="submit">Cari</button>
     </form>
@@ -24,7 +24,7 @@
       <!-- Menampilkan hasil pencarian -->
       <ul>
           <li th:each="show : ${shows}">
-            <a th:href="@{/show?id={showId}(showId=${show.show_id})}">
+            <a th:href="@{/member/show?id={showId}(showId=${show.show_id})}">
               <div class="card">
                   <h3 th:text="${show.venue}">Nama Show</h3>
                   <p>Artis: <span th:text="${show.name}">Nama Artis</span></p>
