@@ -20,7 +20,7 @@ public class LoginController {
     @GetMapping("/login")
     public String loginView(HttpSession session){
         if (session.getAttribute("user") != null) {
-            return "redirect:/dashboard";
+            return "redirect:/member/home-member";
         }
         return "login";
     }
@@ -32,20 +32,13 @@ public class LoginController {
             session.setAttribute("user", user); // Menyimpan user di session jika login berhasil
             session.setAttribute("username", user.getUsername());
             session.setAttribute("role", user.getRole());
-            return "redirect:/dashboard";
+            return "redirect:/member/home-member";
         } else {
             model.addAttribute("status", "failed"); // Menambahkan status gagal jika login gagal
             return "login"; // Kembali ke halaman login
         }
     }
 
-    @GetMapping("/dashboard")
-    @RequiredRole(value = "member")
-    public String index (HttpSession session, Model model){
-        User user = (User) session.getAttribute("user");
-        model.addAttribute("user", user);
-        return "member/home-member";
-    }
 
 
     @GetMapping("/logout")
