@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.TugasBesar.RequiredRole;
 import com.example.TugasBesar.Setlist.Setlist;
 import com.example.TugasBesar.Show.Show;
 
@@ -23,11 +22,6 @@ public class GuestController {
     public String home() {
         return "guest/home"; // Menampilkan halaman home untuk guest
     }
-
-    // @GetMapping("/")
-    // public String index() {
-    //     return "guest/home"; // Default home untuk guest
-    // }
 
      // Endpoint pencarian berdasarkan nama artis
     @GetMapping("/search")

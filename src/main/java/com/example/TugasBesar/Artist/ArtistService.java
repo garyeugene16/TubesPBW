@@ -18,8 +18,8 @@ public class ArtistService {
         return artistRepository.findById(id);
     }
 
-    public int createArtist(Artist artist) {
-        return artistRepository.save(artist);
+    public boolean createArtist(String artist, String username) {
+        return artistRepository.save(artist, username);
     }
 
     public int updateArtist(Artist artist) {
