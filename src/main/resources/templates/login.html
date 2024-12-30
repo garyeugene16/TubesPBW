@@ -14,6 +14,7 @@
   <main class="auth-container">
     <div class="form-container">
       <h1 id="formTitle">Login</h1>
+      <p class="error" th:if="${status}==failed">Please check username or password</p>
       <form id="authForm" action="login" method="post">
         <div class="input-group">
           <label for="username">Username:</label>

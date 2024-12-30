@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.TugasBesar.Artist.Artist;
+import com.example.TugasBesar.Artist.ArtistService;
 import com.example.TugasBesar.Setlist.Setlist;
 import com.example.TugasBesar.Show.Show;
 
@@ -22,6 +24,9 @@ public class MemberController {
 
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private ArtistService artistService;
 
     @GetMapping("/home-member")
     public String home() {
@@ -56,8 +61,15 @@ public class MemberController {
         return "member/show-detail-member"; // Template untuk detail show
     }
 
-    @GetMapping("/add-data")
+    // @GetMapping("/add-data")
+    // public String addData(Model model) {
+    //     return "member/add-data"; // Template untuk hasil pencarian
+    // }
+
+     @GetMapping("/add-data")
     public String addData(Model model) {
+        List<Artist> artists = artistService.getAllArtists(); // Ambil daftar artis dari service
+        model.addAttribute("artists", artists); // Tambahkan ke model
         return "member/add-data"; // Template untuk hasil pencarian
     }
 

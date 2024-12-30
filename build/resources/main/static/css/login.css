@@ -116,3 +116,12 @@ footer {
   padding: 10px;
   font-size: 0.9rem;
 }
+
+
+ /* Error Messages */
+ .error {
+  color: red;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
