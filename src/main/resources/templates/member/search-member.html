@@ -36,6 +36,19 @@
   </div>
 </section>
 
+<section class="pagination">
+  <nav>
+    <a th:href="@{/search(keyword=${keyword}, page=${currentPage - 1})}" 
+       th:if="${currentPage != null and currentPage > 0}">Previous</a>
+    <span>Page 
+      <span th:text="${currentPage != null ? currentPage + 1 : 1}">1</span> of 
+      <span th:text="${totalPages != null ? totalPages : 1}">1</span>
+    </span>
+    <a th:href="@{/search(keyword=${keyword}, page=${currentPage + 1})}" 
+       th:if="${totalPages != null and currentPage != null and currentPage < totalPages - 1}">Next</a>
+  </nav>
+</section>
+
   <!-- Footer -->
   <div th:replace="~{member/fragment/footer :: footer}"></div>
   <script src="/scripts/search.js"></script>

@@ -11,7 +11,7 @@
   <div th:replace="~{guest/fragment/header :: header}"></div>
 
   <section class="search-bar">
-    <h1 style="color: white;">Cari Artis, Konser, atau Lagu</h1>
+    <h1 style="color: white">Cari Artis, Konser, atau Lagu</h1>
     <form method="POST" action="/search">
         <input type="text" name="keyword" placeholder="Masukkan nama artis, konser, atau lagu..." required />
         <button type="submit">Cari</button>
@@ -19,7 +19,7 @@
 </section>
 
 <section class="search-results">
-  <h2>Hasil Pencarian</h2>
+  <h2>Hasil Pencarian</h2>  
   <div class="grid">
       <!-- Menampilkan hasil pencarian -->
       <ul>
@@ -35,6 +35,30 @@
       </ul>
   </div>
 </section>
+
+<section class="pagination">
+  <nav>
+    <a th:href="@{/search(keyword=${keyword}, page=${currentPage - 1})}" 
+       th:if="${currentPage != null and currentPage > 0}">Previous</a>
+    <span>Page 
+      <span th:text="${currentPage != null ? currentPage + 1 : 1}">1</span> of 
+      <span th:text="${totalPages != null ? totalPages : 1}">1</span>
+    </span>
+    <a th:href="@{/search(keyword=${keyword}, page=${currentPage + 1})}" 
+       th:if="${totalPages != null and currentPage != null and currentPage < totalPages - 1}">Next</a>
+  </nav>
+</section>
+
+<!-- <section class="pagination">
+  <nav>
+    <a th:href="@{/search(keyword=${keyword}, page=${currentPage - 1})}" 
+       th:if="${currentPage > 0}">Previous</a>
+    <span>Page <span th:text="${currentPage + 1}">1</span> of 
+          <span th:text="${totalPages}">1</span></span>
+    <a th:href="@{/search(keyword=${keyword}, page=${currentPage + 1})}" 
+       th:if="${currentPage < totalPages - 1}">Next</a>
+  </nav>
+</section> -->
 
   <!-- Footer -->
   <div th:replace="~{guest/fragment/footer :: footer}"></div>

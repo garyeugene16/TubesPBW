@@ -23,20 +23,32 @@ public class GuestController {
         return "guest/home"; // Menampilkan halaman home untuk guest
     }
 
-     // Endpoint pencarian berdasarkan nama artis
+    // Endpoint pencarian berdasarkan nama artis
     @GetMapping("/search")
     public String searchByArtist(Model model) {
         return "guest/search"; // Template untuk hasil pencarian
     }
 
     @PostMapping("/search")
-    public String searchByKeyword(@RequestParam("keyword") String keyword, Model model) {
-        List<Show> shows = guestService.searchShowsByArtist(keyword);
+    public String searchByKeyword(
+            @RequestParam("keyword") String keyword,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            Model model) {
+        if (page < 0) {
+            page = 0; // Reset ke halaman pertama jika page negatif
+        }
+        int pageSize = 5; // Jumlah item per halaman
+        List<Show> shows = guestService.searchShowsByKeywordWithPagination(keyword, page, pageSize);
+        int totalPages = guestService.getTotalPages(keyword, pageSize);
+
         model.addAttribute("keyword", keyword);
         model.addAttribute("shows", shows);
-        return "guest/search"; // Template untuk hasil pencarian
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+
+        return "guest/search";
     }
-     
+
     @GetMapping("/show")
     public String getShowDetails(@RequestParam("id") int show_id, Model model) {
         Show show = guestService.getShowDetails(show_id); // Memanggil layanan untuk mendapatkan show
@@ -45,6 +57,5 @@ public class GuestController {
         model.addAttribute("setlist", setlist);
         return "guest/show-detail"; // Template untuk detail show
     }
-
 
 }

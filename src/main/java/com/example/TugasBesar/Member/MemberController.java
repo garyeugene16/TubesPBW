@@ -45,11 +45,23 @@ public class MemberController {
     }
 
     @PostMapping("/search")
-    public String searchByKeyword(@RequestParam("keyword") String keyword, Model model) {
-        List<Show> shows = memberService.searchShowsByArtist(keyword);
+    public String searchByKeyword(
+            @RequestParam("keyword") String keyword,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            Model model) {
+        if (page < 0) {
+            page = 0; // Reset ke halaman pertama jika page negatif
+        }
+        int pageSize = 5; // Jumlah item per halaman
+        List<Show> shows = memberService.searchShowsByKeywordWithPagination(keyword, page, pageSize);
+        int totalPages = memberService.getTotalPages(keyword, pageSize);
+
         model.addAttribute("keyword", keyword);
         model.addAttribute("shows", shows);
-        return "member/search-member"; // Template untuk hasil pencarian
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+
+        return "member/search-member";
     }
      
     @GetMapping("/show")

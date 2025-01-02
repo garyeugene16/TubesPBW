@@ -37,6 +37,24 @@ public class JdbcMemberRepository implements MemberRepository {
         return jdbcTemplate.query(sql, this::mapRowToSetlist, show_id);
     }
 
+    @Override
+    public List<Show> findShowsByKeywordWithPagination(String keyword, int offset, int limit) {
+        String sql = "SELECT s.show_id, s.artist_id, s.venue, s.date, s.created_by, s.created_at, a.name " +
+                "FROM shows s JOIN artists a ON s.artist_id = a.artist_id " +
+                "WHERE s.venue ILIKE ? OR a.name ILIKE ? " +
+                "ORDER BY s.date DESC LIMIT ? OFFSET ?";
+        String searchKeyword = "%" + keyword + "%";
+        return jdbcTemplate.query(sql, this::mapRowToShow, searchKeyword, searchKeyword, limit, offset);
+    }
+
+    @Override
+    public int countShowsByKeyword(String keyword) {
+        String sql = "SELECT COUNT(*) FROM shows s JOIN artists a ON s.artist_id = a.artist_id " +
+                "WHERE s.venue ILIKE ? OR a.name ILIKE ?";
+        String searchKeyword = "%" + keyword + "%";
+        return jdbcTemplate.queryForObject(sql, Integer.class, searchKeyword, searchKeyword);
+    }
+
     private Member mapRowToMember(ResultSet resultSet, int rowNum) throws SQLException {
         return new Member(
             resultSet.getString("username"),

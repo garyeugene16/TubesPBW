@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TugasBesar.TugasBesarApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-02T13:15:56" hostname="LEGION-YOO" time="1.339">
+<testsuite name="com.example.TugasBesar.TugasBesarApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-02T18:09:28" hostname="LEGION-YOO" time="0.773">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.TugasBesar.TugasBesarApplicationTests" time="1.339"/>
-  <system-out><![CDATA[20:15:53.014 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.TugasBesar.TugasBesarApplicationTests]: TugasBesarApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-20:15:53.190 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.TugasBesar.TugasBesarApplication for test class com.example.TugasBesar.TugasBesarApplicationTests
+  <testcase name="contextLoads()" classname="com.example.TugasBesar.TugasBesarApplicationTests" time="0.773"/>
+  <system-out><![CDATA[01:09:25.473 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.TugasBesar.TugasBesarApplicationTests]: TugasBesarApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:09:25.636 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.TugasBesar.TugasBesarApplication for test class com.example.TugasBesar.TugasBesarApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,9 +14,9 @@
 
  :: Spring Boot ::                (v3.4.0)
 
-2025-01-02T20:15:53.730+07:00  INFO 18200 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Starting TugasBesarApplicationTests using Java 21.0.1 with PID 18200 (started by Rio in C:\Users\Rio\Desktop\KULIAH\Sem 5\2. PBW\PBW - Gary\TubesPBW)
-2025-01-02T20:15:53.732+07:00  INFO 18200 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : No active profile set, falling back to 1 default profile: "default"
-2025-01-02T20:15:56.365+07:00  INFO 18200 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Started TugasBesarApplicationTests in 2.995 seconds (process running for 4.425)
+2025-01-03T01:09:26.122+07:00  INFO 23984 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Starting TugasBesarApplicationTests using Java 21.0.1 with PID 23984 (started by Rio in C:\Users\Rio\Desktop\KULIAH\Sem 5\2. PBW\PBW - Gary\TubesPBW)
+2025-01-03T01:09:26.124+07:00  INFO 23984 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2025-01-03T01:09:28.139+07:00  INFO 23984 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Started TugasBesarApplicationTests in 2.312 seconds (process running for 3.744)
 ]]></system-out>
   <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
 WARNING: A Java agent has been loaded dynamically (C:\Users\Rio\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.15.10\e8eb255b2c378b9a6c7341e7b0e12f0a5636377\byte-buddy-agent-1.15.10.jar)

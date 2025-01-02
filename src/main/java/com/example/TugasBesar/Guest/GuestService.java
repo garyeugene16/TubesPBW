@@ -25,5 +25,15 @@ public class GuestService {
     public List<Setlist> getSetlistByShowId(int show_id) {
         return guestRepository.findSetlistByShowId(show_id);
     }
+
+    public List<Show> searchShowsByKeywordWithPagination(String keyword, int page, int size) {
+        int offset = page * size;
+        return guestRepository.findShowsByKeywordWithPagination(keyword, offset, size);
+    }
+    
+    public int getTotalPages(String keyword, int size) {
+        int totalRecords = guestRepository.countShowsByKeyword(keyword);
+        return (int) Math.ceil((double) totalRecords / size);
+    }
 }
 
