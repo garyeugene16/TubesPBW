@@ -87,7 +87,7 @@
             </select>
 
             <label for="show-id">Select Show:</label>
-            <select id="show-id" name="showId" th:if="${selectedArtist}" required>
+            <select id="show-id" name="id" th:if="${selectedArtist}" required>
             <option value="" disabled selected>Select a Show</option>
             <option th:each="show : ${showsForSelectedArtist}" th:value="${show.show_id}" th:text="${show.name}"></option>
             <!-- Show options will be added dynamically -->

@@ -72,4 +72,13 @@ public class MemberController {
         model.addAttribute("artists", artists); // Tambahkan ke model
         return "member/add-data"; // Template untuk hasil pencarian
     }
+
+    @GetMapping("/setlist/edit")
+    public String editSetlist(@RequestParam("id") int show_id, Model model) {
+        Show show = memberService.getShowDetails(show_id);
+        List<Setlist> setlist = memberService.getSetlistByShowId(show_id);
+        model.addAttribute("show", show);
+        model.addAttribute("setlist", setlist);
+        return "edit-setlist";
+    }
 }

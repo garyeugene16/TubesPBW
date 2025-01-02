@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Setlist</title>
+</head>
+<body>
+    <h1>Edit Setlist for Show</h1>
+
+    <h3>Add Song</h3>
+    <form method="POST" action="/setlist/add">
+        <input type="hidden" name="showId" th:value="${show.show_id}">
+        <input type="text" name="songTitle" placeholder="Song Title" required>
+        <input type="number" name="songOrder" placeholder="Order" required>
+        <button type="submit">Add Song</button>
+    </form>
+
+    <h3>Delete Existing Songs</h3>
+    <ul>
+        <li th:each="song : ${setlist}">
+            <span th:text="${song.song_title}">Song Title</span>
+            <!-- <form method="POST" action="/setlist/update-order">
+                <input type="hidden" name="showId" th:value="${show.show_id}">
+                <input type="hidden" name="setlistId" th:value="${song.setlist_id}">
+                <input type="number" name="songOrder" th:value="${song.song_order}">
+                <button type="submit">Update Order</button>
+            </form> -->
+            <form method="POST" action="/setlist/delete">
+                <input type="hidden" name="setlistId" th:value="${song.setlist_id}">
+                <input type="hidden" name="showId" th:value="${show.show_id}">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>
+
+    <h3>Pembaruan Urutan Lagu</h3>
+    <form method="POST" action="/setlist/update-all-orders">
+        <ul>
+            <li th:each="song : ${setlist}">
+                <span th:text="${song.song_title}"></span>
+                <input type="hidden" name="showId" th:value="${show.show_id}">
+                <input type="hidden" name="setlistIds" th:value="${song.setlist_id}">
+                <input type="number" name="songOrders" th:value="${song.song_order}">
+            </li>
+        </ul>
+        <button type="submit">Update Order</button>
+    </form>
+
+    <a th:href="@{/member/show(id=${show.show_id})}">Back to Show Details</a>
+</body>
+</html>
