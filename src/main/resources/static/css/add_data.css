@@ -47,7 +47,7 @@ body {
     padding: 40px 20px;
     display: grid;
     place-items: center;
-    background: #f4f4f4;
+    background: url('/images/concert-bg.jpeg') no-repeat center center/cover;
   }
   
   .form-container {
