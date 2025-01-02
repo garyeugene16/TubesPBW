@@ -72,5 +72,4 @@ public class MemberController {
         model.addAttribute("artists", artists); // Tambahkan ke model
         return "member/add-data"; // Template untuk hasil pencarian
     }
-
 }
