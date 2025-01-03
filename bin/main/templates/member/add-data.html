@@ -20,9 +20,9 @@
 
       <!-- Buttons to Switch Forms -->
       <div class="button-group">
-        <button id="btn-add-artist">Add Artist</button>
-        <button id="btn-add-show">Add Show</button>
-        <button id="btn-add-setlist">Add Setlist</button>
+        <button id="btn-add-artist" class="btn">Add Artist</button>
+        <button id="btn-add-show" class="btn">Add Show</button>
+        <!-- <button id="btn-add-setlist">Add Setlist</button> -->
       </div>
 
       <!-- Add Artist Form -->
@@ -32,30 +32,6 @@
         <input type="text" name="artistName" id="artist-name" required>
         <button type="submit">Submit</button>
       </form>
-
-      <!-- Add Show Form -->
-      <!-- <form id="add-show-form" class="hidden">
-        <h2>Add Show</h2>
-        <label for="artist-id">Artist ID:</label>
-        <input type="text" id="artist-id" required>
-        <label for="venue">Venue:</label>
-        <input type="text" id="venue" required>
-        <label for="date">Date:</label>
-        <input type="date" id="date" required>
-        <button type="submit">Submit</button>
-      </form> -->
-
-      <!-- Add Setlist Form -->
-      <!-- <form id="add-setlist-form" class="hidden">
-        <h2>Add Setlist</h2>
-        <label for="show-id">Show ID:</label>
-        <input type="text" id="show-id" required>
-        <label for="song-title">Song Title:</label>
-        <input type="text" id="song-title" required>
-        <label for="proof">Proof (optional):</label>
-        <input type="file" id="proof" accept="image/*">
-        <button type="submit">Submit</button>
-      </form> -->
 
       <!-- Add Show Form -->
         <form id="add-show-form" th:action="@{/add-show}" method="post" class="hidden">
@@ -76,21 +52,21 @@
             <button type="submit">Submit</button>
         </form>
   
-        <!-- Add Setlist Form -->
-        <form id="add-setlist-form" th:action="@{/add-setlist}" method="post" class="hidden">
+        <!-- Menghilangkan Form Add Setlist -->
+        <!-- <form id="add-setlist-form" th:action="@{/add-setlist}" method="post" class="hidden">
             <h2>Add Setlist</h2>
             <label for="artist-id">Select Artist:</label>
             <select id="artist-id" name="artistName" required>
             <option value="" disabled selected>Select an Artist</option>
             <option th:each="artist : ${artists}" th:value="${artist.artist_id}" th:text="${artist.name}"></option>
-            <!-- Artist options will be added dynamically -->
+            Artist options will be added dynamically
             </select>
 
             <label for="show-id">Select Show:</label>
             <select id="show-id" name="id" th:if="${selectedArtist}" required>
             <option value="" disabled selected>Select a Show</option>
             <option th:each="show : ${showsForSelectedArtist}" th:value="${show.show_id}" th:text="${show.name}"></option>
-            <!-- Show options will be added dynamically -->
+            Show options will be added dynamically
             </select>
         
             <label for="song-title">Song Title:</label>
@@ -103,8 +79,7 @@
             <input type="file" id="proof" accept="image/*">
         
             <button type="submit">Submit</button>
-        </form>
-  
+        </form> -->
     </div>
   </section>
 

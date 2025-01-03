@@ -47,6 +47,13 @@ public class JdbcShowRepository implements ShowRepository {
         return jdbcTemplate.update(sql, id);
     }
 
+    @Override
+    public boolean isCreatedBy(int showId, String username) {
+        String sql = "SELECT COUNT(*) FROM shows WHERE show_id = ? AND created_by = ?";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, showId, username);
+        return (count != null && count > 0);
+    }
+
     private Show mapRowToShow(ResultSet resultSet, int rowNum) throws SQLException {
         return new Show(
             resultSet.getInt("show_id"),

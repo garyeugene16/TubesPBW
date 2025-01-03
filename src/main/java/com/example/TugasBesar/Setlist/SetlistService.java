@@ -13,6 +13,9 @@ public class SetlistService {
     @Autowired
     private JdbcSetlistRepository setlistRepository;
 
+    @Autowired
+    private com.example.TugasBesar.Show.ShowRepository showRepository;
+
     public void addSong(int showId, String songTitle, int songOrder, String username, String role) {
         if (!canEditSetlist(showId, username, role)) {
             throw new IllegalArgumentException("You do not have permission to edit this setlist.");
@@ -49,9 +52,21 @@ public class SetlistService {
         }
     }
 
-    // Yang Bisa Melakukan Edit hanya Admin / Member Pembuat Setlist Tersebut!
+    // Yang Bisa Melakukan Edit hanya Admin / Member Pembuat Setlist Tersebut
+    // private boolean canEditSetlist(int showId, String username, String role) {
+    //     return role.equals("admin") || 
+    //            (role.equals("member") && setlistRepository.isCreatedBy(showId, username));
+    // }
+
+    // Yang Bisa Melakukan Edit hanya Admin / Member Pembuat Setlist / Member Pembuat Show
     private boolean canEditSetlist(int showId, String username, String role) {
-        return role.equals("admin") || 
-               (role.equals("member") && setlistRepository.isCreatedBy(showId, username));
+        return role.equals("admin")
+            || (
+                role.equals("member") 
+                && (
+                    setlistRepository.isCreatedBy(showId, username)  // pembuat setlist
+                    || showRepository.isCreatedBy(showId, username)  // pembuat show
+                )
+            );
     }
 }
