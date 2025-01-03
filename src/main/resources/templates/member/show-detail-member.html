@@ -21,11 +21,14 @@
     <ul>
         <li th:each="song : ${setlist}" th:text="${song.song_title}">Song Title</li>
     </ul>
-  </section>
 
-  <!-- Edit Setlist Button -->
-  
-    <button id="setlist"> <a href="add-setlist">Edit Setlist</a></button>
+    <!-- Edit Setlist Button -->
+    <!-- <a th:href="@{/member/setlist/edit(id=${show.show_id})}" class="btn btn-primary">Edit Setlist</a> -->
+    <button type="button" class="btn btn-primary" 
+            th:onclick="|window.location.href='/member/setlist/edit?id=${show.show_id}'|">
+        Edit Setlist
+    </button>
+  </section>
   </div>
 
   <!-- Footer -->

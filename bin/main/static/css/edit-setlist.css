@@ -1,0 +1,228 @@
+/* Reset & Basic Styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Untuk membantu vertical centering */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    background: #222;
+    color: #fff;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 20px;
+    justify-content: end;
+    list-style: none;
+}
+
+header nav a {
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #f90;
+}
+
+/* Section edit-setlist 
+   Gunakan flexbox, agar konten di tengah (horizontal & vertikal)
+*/
+.edit-setlist {
+    min-height: calc(100vh - 60px); /* Agar section memenuhi layar, dikurangi header/footer */
+    display: flex;
+    justify-content: center; /* Tengah horizontal */
+    align-items: center;     /* Tengah vertikal */
+    background: #f4f4f4;
+    padding: 20px;           /* Ruang di sekeliling */
+}
+
+/* Kontainer putih di tengah */
+.edit-setlist .content {
+    background: #fff;
+    width: 90%;
+    max-width: 800px; /* Atur max-width lebih kecil agar proporsional */
+    padding: 40px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading utama */
+.edit-setlist h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Section Titles (h3) */
+.section h3 {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.order-input {
+    width: 80px;
+    text-align: center;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Special Buttons */
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #a71d2a;
+}
+
+.btn-back {
+    background-color: #6c757d;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-back:hover {
+    background-color: #495057;
+}
+
+/* Update Order Form khusus */
+.update-order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px; /* Jarak di atas list lagu */
+}
+
+/* Lists */
+.song-list, .song-order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.song-item, .song-order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fafafa;
+    transition: background-color 0.3s ease;
+}
+
+.song-item:hover,
+.song-order-item:hover {
+    background-color: #f0f0f0;
+}
+
+.song-title {
+    font-size: 1rem;
+    flex: 2;
+}
+
+/* Atur lebar & penempatan item di update-order agar tetap di tengah */
+.song-order-item {
+    max-width: 400px;        /* Batasi lebarnya agar tidak penuh */
+    width: 100%;             /* Tetap responsive */
+    margin: 0 auto 10px;     /* 0 auto untuk center horizontal */
+}
+
+.btn-update-order {
+    margin-top: 20px; 
+    width: auto;             /* Agar tombol menyesuaikan teks */
+    align-self: center;      /* Supaya tetap di tengah */
+    font-size: 1rem;
+    padding: 10px 20px;      /* Sama dengan tombol Add / Delete */
+}
+
+/* Navigasi */
+.navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .edit-setlist .content {
+        padding: 20px;
+    }
+
+    .form {
+        flex-direction: column;
+    }
+
+    .song-item, .song-order-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-input {
+        width: 100%;
+    }
+}

@@ -31,9 +31,16 @@ public class JdbcMemberRepository implements MemberRepository {
         return jdbcTemplate.queryForObject(sql, this::mapRowToShow, show_id);
     }
 
+    // @Override
+    // public List<Setlist> findSetlistByShowId(int show_id) {
+    //     String sql = "SELECT * FROM setlists WHERE show_id = ?";
+    //     return jdbcTemplate.query(sql, this::mapRowToSetlist, show_id);
+    // }
+
     @Override
     public List<Setlist> findSetlistByShowId(int show_id) {
-        String sql = "SELECT * FROM setlists WHERE show_id = ?";
+        // Tambahkan ORDER BY song_order ASC agar urutan lagu sesuai kolom song_order
+        String sql = "SELECT * FROM setlists WHERE show_id = ? ORDER BY song_order ASC";
         return jdbcTemplate.query(sql, this::mapRowToSetlist, show_id);
     }
 

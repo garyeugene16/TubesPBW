@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Set List Konser</title>
+  <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+  <!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
+  
+  <main class="auth-container">
+    <div class="form-container">
+      <h1 id="formTitle">Register</h1>
+      <div th:if="${error}" class="error" th:text="${error}"></div>
+      <form method="post" action="register" th:object="${user}">
+        <div class="input-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Masukkan username" th:field="*{username}" required>
+          <div th:if="${#fields.hasErrors('username')}" class="error" th:errors="*{username}"></div>
+        </div>
+        <div class="input-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Masukkan password" th:field="*{password}" required>
+          <div th:if="${#fields.hasErrors('password')}" class="error" th:errors="*{password}"></div>
+        </div>
+        <div class="input-group">
+          <label for="confirmpassword">Konfirmasi Password:</label>
+          <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Masukkan password lagi" th:field="*{confirmpassword}" required>
+          <div th:if="${#fields.hasErrors('confirmpassword')}" class="error" th:errors="*{confirmpassword}"></div>
+        </div>
+        <div class="input-group">
+          <label for="name">Nama:</label>
+          <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" th:field="*{name}" required>
+          <div th:if="${#fields.hasErrors('name')}" class="error" th:errors="*{name}"></div>
+        </div>
+        <button type="submit">Register</button>
+        <p id="toggleText">
+            Sudah punya akun? <a href="login" id="toggleForm">Login sekarang</a>
+        </p>          
+      </form>
+    </div>
+  </main>
+  <br>
+  <!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
+</body>
+</html>
