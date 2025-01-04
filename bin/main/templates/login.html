@@ -4,41 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login/Registrasi - Set List Konser</title>
-  <link rel="stylesheet" href="../static/css/login.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <!-- <link rel="stylesheet" href="../static/css/login.css"> -->
 </head>
 <body>
-  <header>
-    <div class="logo">SetListKonser</div>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="search.html">Cari</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
+
   <main class="auth-container">
     <div class="form-container">
       <h1 id="formTitle">Login</h1>
-      <form id="authForm">
+      <p class="error" th:if="${status}==failed">Please check username or password</p>
+      <form id="authForm" action="login" method="post">
         <div class="input-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" placeholder="Masukkan email" required>
+          <label for="username">Username:</label>
+          <input name="username" type="text" id="username" placeholder="Masukkan username" required>
         </div>
         <div class="input-group">
           <label for="password">Password:</label>
-          <input type="password" id="password" placeholder="Masukkan password" required>
+          <input name="password" type="password" id="password" placeholder="Masukkan password" required>
         </div>
         <button type="submit" id="submitButton">Login</button>
         <p id="toggleText">
-          Belum punya akun? <span id="toggleForm">Daftar sekarang</span>
-        </p>
+          Belum punya akun? <a href="register" id="toggleForm">Daftar sekarang</a>
+        </p>        
       </form>
     </div>
   </main>
-  <footer>
-    <p>&copy; 2024 SetListKonser. All Rights Reserved.</p>
-  </footer>
+
+  <!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
+
   <script src="../static/scripts/login.js"></script>
 </body>
 </html>

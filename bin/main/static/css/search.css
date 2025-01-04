@@ -44,9 +44,10 @@ header nav a:hover {
 
 /* Search Bar Section */
 .search-bar {
+  background: url('/images/concert-bg.jpeg') no-repeat center center/cover; 
   text-align: center;
   padding: 50px 20px;
-  background: #f4f4f4;
+  /* background: #f4f4f4; */
 }
 .search-bar h1 {
   font-size: 2rem;
@@ -69,6 +70,7 @@ header nav a:hover {
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.3s;
+  border: 1px solid grey;
 }
 .search-bar button:hover {
   background: #d97706;
@@ -78,24 +80,58 @@ header nav a:hover {
 .search-results {
   padding: 40px 20px;
 }
+
 .search-results h2 {
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 20px;
 }
 .search-results .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Spasi antar elemen */
+  justify-content: center;
 }
+
+/* Implementasi dengan flex-wrap, dikarenakan flex buggy dan grid hanya dapat menampilkan secara vertikal. */
+.search-results .grid ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.search-results .grid ul li {
+  width: 240px; /* menampilkan secara horizontal */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+  padding: 10px;
+  box-sizing: border-box; /* agar padding + width = total 240px */
+}
+
+.search-results .grid ul li:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+}
+
+/* Style title, dsb */
+.search-results .grid ul li h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
 .search-results .card {
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  width: 200px;
   text-align: center;
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, transform 0.2s;
+  margin: 0;
 }
 .search-results .card img {
   width: 100%;
@@ -108,6 +144,19 @@ header nav a:hover {
 }
 .search-results .card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .search-results .grid ul li {
+    flex: 1 1 calc(50% - 16px); /* Dua elemen per baris di layar sedang */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search-results .grid ul li {
+    flex: 1 1 100%; /* Satu elemen per baris di layar kecil */
+  }
 }
 
 /* Footer */

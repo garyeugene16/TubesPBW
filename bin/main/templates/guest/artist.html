@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Artis - Set List Konser</title>
+  <link rel="stylesheet" href="/css/artist.css">
+</head>
+<body>
+  <!-- Header -->
+  <div th:replace="~{guest/fragment/header :: header}"></div>
+  
+  <section class="artist-info">
+    <div class="artist-header">
+      <img src="/images/user.jpg" alt="Artis 1" id="artistImage">
+      <h1 id="artistName">Nama Artis</h1>
+    </div>
+    <p id="artistDescription">
+      Deskripsi artis akan ditampilkan di sini. Informasi lengkap mengenai artis, genre musik, dan konser terkenal yang pernah diadakan.
+    </p>
+  </section>
+  <section class="artist-shows">
+    <h2>Daftar Konser</h2>
+    <div class="grid" id="showList">
+      <!-- Daftar konser akan dimasukkan di sini oleh JavaScript -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div th:replace="~{guest/fragment/footer :: footer}"></div>
+
+  <script src="/scripts/artist.js"></script>
+</body>
+</html>

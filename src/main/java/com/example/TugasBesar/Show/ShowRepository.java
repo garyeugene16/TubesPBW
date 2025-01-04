@@ -10,4 +10,5 @@ public interface ShowRepository {
     public boolean save(int artistName, String venue, LocalDate date, String username);
     public int update(Show show);
     public int deleteById(int id);
+    boolean isCreatedBy(int showId, String username);
 }

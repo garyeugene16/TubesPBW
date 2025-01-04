@@ -44,10 +44,10 @@ header nav a:hover {
 
 /* Hero Section */
 .hero {
-  background: url('concert-bg.jpg') no-repeat center center/cover;
-  color: #fff;
+  background: url('/images/concert-bg.jpeg') no-repeat center center/cover;
+  color: white;
   text-align: center;
-  padding: 100px 20px;
+  padding: 20px 20px;
   display: grid;
   place-items: center;
   gap: 20px;
@@ -55,10 +55,12 @@ header nav a:hover {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: white;
 }
-.hero p {
-  font-size: 1.2rem;
+.hero h2 {
+  font-size: 2.0rem;
   margin-bottom: 20px;
+  color: white;
 }
 .hero button {
   background: #f90;
@@ -68,6 +70,8 @@ header nav a:hover {
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
 .hero button:hover {
   background: #d97706;
@@ -93,7 +97,7 @@ header nav a:hover {
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
-  max-width: 200px;
+  max-width: 350px;
   text-align: center;
   transition: box-shadow 0.3s;
 }
