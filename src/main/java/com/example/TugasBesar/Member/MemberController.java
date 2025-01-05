@@ -1,6 +1,7 @@
 package com.example.TugasBesar.Member;
 
 import java.net.http.HttpClient;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.TugasBesar.Artist.Artist;
 import com.example.TugasBesar.Artist.ArtistService;
+import com.example.TugasBesar.Guest.GuestService;
 import com.example.TugasBesar.Setlist.Setlist;
 import com.example.TugasBesar.Show.Show;
 
@@ -40,8 +42,26 @@ public class MemberController {
 
     // Endpoint pencarian berdasarkan nama artis
     @GetMapping("/search")
-    public String searchByArtist(Model model) {
-        return "member/search-member"; // Template untuk hasil pencarian
+    public String search(@RequestParam(value = "keyword", defaultValue = "") String keyword,
+                         @RequestParam(value = "page", defaultValue = "0") int page,
+                         Model model) {
+        int pageSize = 8; // Jumlah item per halaman
+
+        // Jika keyword kosong, jangan ambil data shows
+        List<Show> shows = new ArrayList<>();
+        int totalPages = 0;
+
+        if (!keyword.isEmpty()) {
+            shows = memberService.searchShowsByKeywordWithPagination(keyword, page, pageSize);
+            totalPages = memberService.getTotalPages(keyword, pageSize);
+        }
+
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("shows", shows);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+
+        return "member/search-member"; // Mengarah ke template untuk member
     }
 
     @PostMapping("/search")
@@ -49,10 +69,12 @@ public class MemberController {
             @RequestParam("keyword") String keyword,
             @RequestParam(value = "page", defaultValue = "0") int page,
             Model model) {
+
         if (page < 0) {
             page = 0; // Reset ke halaman pertama jika page negatif
         }
-        int pageSize = 5; // Jumlah item per halaman
+
+        int pageSize = 8; // Jumlah item per halaman
         List<Show> shows = memberService.searchShowsByKeywordWithPagination(keyword, page, pageSize);
         int totalPages = memberService.getTotalPages(keyword, pageSize);
 
@@ -61,7 +83,7 @@ public class MemberController {
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", totalPages);
 
-        return "member/search-member";
+        return "redirect:/search-member";
     }
      
     @GetMapping("/show")

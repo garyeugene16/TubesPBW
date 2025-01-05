@@ -12,7 +12,7 @@
 
   <section class="search-bar">
     <h1 style="color: white;">Cari Artis, Konser, atau Lagu</h1>
-    <form method="POST" action="/member/search">
+    <form method="GET" action="/member/search">
         <input type="text" name="keyword" placeholder="Masukkan nama artis, konser, atau lagu..." required />
         <button type="submit">Cari</button>
     </form>
@@ -38,14 +38,19 @@
 
 <section class="pagination">
   <nav>
-    <a th:href="@{/search(keyword=${keyword}, page=${currentPage - 1})}" 
-       th:if="${currentPage != null and currentPage > 0}">Previous</a>
-    <span>Page 
-      <span th:text="${currentPage != null ? currentPage + 1 : 1}">1</span> of 
+    <!-- Tombol Previous -->
+    <a th:href="@{/search(keyword=${keyword}, page=${currentPage - 1})}"
+      th:if="${currentPage != null and currentPage > 0}">Previous</a>
+
+    <!-- Informasi halaman saat ini -->
+    <span>Page
+      <span th:text="${currentPage != null ? currentPage + 1 : 1}">1</span> of
       <span th:text="${totalPages != null ? totalPages : 1}">1</span>
     </span>
-    <a th:href="@{/search(keyword=${keyword}, page=${currentPage + 1})}" 
-       th:if="${totalPages != null and currentPage != null and currentPage < totalPages - 1}">Next</a>
+
+    <!-- Tombol Next -->
+    <a th:href="@{/search(keyword=${keyword}, page=${currentPage + 1})}"
+      th:if="${totalPages != null and currentPage != null and currentPage < totalPages - 1}">Next</a>
   </nav>
 </section>
 

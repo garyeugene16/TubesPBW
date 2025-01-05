@@ -12,3 +12,4 @@ public interface MemberRepository {
     List<Show> findShowsByKeywordWithPagination(String keyword, int offset, int limit);
     int countShowsByKeyword(String keyword);
 }
+
