@@ -38,6 +38,24 @@ public class JdbcMemberRepository implements MemberRepository {
     // }
 
     @Override
+    public List<Show> findShowsByKeywordWithPagination(String keyword, int offset, int limit) {
+        String sql = "SELECT s.show_id, s.artist_id, s.venue, s.date, s.created_by, s.created_at, a.name " +
+                "FROM shows s JOIN artists a ON s.artist_id = a.artist_id " +
+                "WHERE s.venue ILIKE ? OR a.name ILIKE ? " +
+                "ORDER BY s.date DESC LIMIT ? OFFSET ?";
+        String searchKeyword = "%" + keyword + "%";
+        return jdbcTemplate.query(sql, this::mapRowToShow, searchKeyword, searchKeyword, limit, offset);
+    }
+
+    @Override
+    public int countShowsByKeyword(String keyword) {
+        String sql = "SELECT COUNT(*) FROM shows s JOIN artists a ON s.artist_id = a.artist_id " +
+                "WHERE s.venue ILIKE ? OR a.name ILIKE ?";
+        String searchKeyword = "%" + keyword + "%";
+        return jdbcTemplate.queryForObject(sql, Integer.class, searchKeyword, searchKeyword);
+    }
+
+    @Override
     public List<Setlist> findSetlistByShowId(int show_id) {
         // Tambahkan ORDER BY song_order ASC agar urutan lagu sesuai kolom song_order
         String sql = "SELECT * FROM setlists WHERE show_id = ? ORDER BY song_order ASC";
