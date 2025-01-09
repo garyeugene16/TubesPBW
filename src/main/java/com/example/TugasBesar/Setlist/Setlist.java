@@ -33,4 +33,13 @@ public class Setlist {
         this.created_by = created_by;
         this.created_at = created_at;
     }
+    public int getShowId() {
+        return show_id;
+    }
+    public int getSongOrder() {
+        return song_order;
+    }
+    public String getSongTitle() {
+        return song_title;
+    }
 }

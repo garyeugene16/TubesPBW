@@ -29,7 +29,7 @@ public class GuestController {
     public String search(@RequestParam(value = "keyword", defaultValue = "") String keyword,
                          @RequestParam(value = "page", defaultValue = "0") int page,
             Model model) {
-        int pageSize = 9; // Jumlah item per halaman
+        int pageSize = 8; // Jumlah item per halaman
 
         // Jika keyword kosong, jangan ambil data shows
         List<Show> shows = new ArrayList<>();

@@ -11,4 +11,8 @@ public class Show {
     private final String created_by;
     private final String created_at;
     private final String name;
+
+    public int getShowId() {
+        return show_id;
+    }
 }

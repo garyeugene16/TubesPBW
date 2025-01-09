@@ -9,7 +9,7 @@ version = "0.0.1-SNAPSHOT"
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
 
@@ -32,7 +32,8 @@ dependencies {
 	// Gatau
     implementation("org.postgresql:postgresql")
 	implementation("org.springframework.boot:spring-boot-starter-aop")
-
+	implementation("com.itextpdf:itextpdf:5.5.13.3")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }
 
 tasks.withType<Test> {

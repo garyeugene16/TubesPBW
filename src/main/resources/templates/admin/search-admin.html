@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pencarian - Set List Konser</title>
+  <link rel="stylesheet" href="/css/admin/search.css">
+  <link rel="stylesheet" href="/css/admin/admin.css">
+
+</head>
+<body>
+  <!-- Header -->
+  <div th:replace="~{admin/fragment/header :: header}"></div>
+
+  <section class="search-bar">
+    <h1 style="color: black;">Cari Artis, Konser, atau Lagu</h1>
+    <form method="POST" action="/admin/search-admin">
+        <input type="text" name="keyword" placeholder="Masukkan nama artis, konser, atau lagu..." required />
+        <button type="submit">Cari</button>
+    </form>
+</section>
+
+<section class="search-results">
+  <h2>Hasil Pencarian</h2>
+  <div class="grid">
+      <!-- Menampilkan hasil pencarian -->
+      <ul>
+          <li th:each="show : ${shows}">
+            <a th:href="@{/admin/show?id={showId}(showId=${show.show_id})}">
+              <div class="card">
+                  <h3 th:text="${show.venue}">Nama Show</h3>
+                  <p>Artis: <span th:text="${show.name}">Nama Artis</span></p>
+                  <!-- <a th:href="@{/show?id={showId}(showId=${show.show_id})}">Lihat Detail</a> -->
+              </div>
+            </a>
+          </li>
+      </ul>
+  </div>
+</section>
+
+<section class="pagination">
+  <nav>
+    <!-- Tombol Previous -->
+    <a th:href="@{/admin/search-admin(keyword=${keyword}, page=${currentPage - 1})}"
+      th:if="${currentPage != null and currentPage > 0}">Previous</a>
+
+    <!-- Informasi halaman saat ini -->
+    <span>Page
+      <span th:text="${currentPage != null ? currentPage + 1 : 1}">1</span> of
+      <span th:text="${totalPages != null ? totalPages : 1}">1</span>
+    </span>
+
+    <!-- Tombol Next -->
+    <a th:href="@{/admin/search-admin(keyword=${keyword}, page=${currentPage + 1})}"
+      th:if="${totalPages != null and currentPage != null and currentPage < totalPages - 1}">Next</a>
+  </nav>
+</section>
+
+  <!-- Footer -->
+  <div th:replace="~{admin/fragment/footer :: footer}"></div>
+  <script src="/scripts/search.js"></script>
+</body>
+</html>

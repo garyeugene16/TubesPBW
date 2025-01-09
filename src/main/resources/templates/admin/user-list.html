@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kelola Pengguna</title>
+    <link rel="stylesheet" href="/css/admin/user-list.css">
+    <link rel="stylesheet" href="/css/admin/admin.css">
+</head>
+<body>
+    <div th:replace="~{admin/fragment/header :: header}"></div>
+
+    <main class="user-management">
+        <div class="heading">
+            <h1>Kelola Pengguna</h1>
+        </div>  
+        <div class="table-container">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Nama</th>
+                        <th>Role</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.role}"></td>
+                        <td>
+                            <a th:href="@{/admin/users/edit/{username}(username=${user.username})}" 
+                               class="btn btn-edit">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination" th:if="${totalPages > 1}">
+                <a th:href="@{/admin/users(page=${currentPage - 1})}" 
+                   th:if="${currentPage > 1}" class="btn">Previous</a>
+                
+                <span th:each="i : ${#numbers.sequence(1, totalPages)}">
+                    <a th:href="@{/admin/users(page=${i})}" 
+                       th:text="${i}"
+                       th:class="${currentPage == i ? 'btn btn-secondary' : 'btn'}"></a>
+                </span>
+                
+                <a th:href="@{/admin/users(page=${currentPage + 1})}" 
+                   th:if="${currentPage < totalPages}" class="btn">Next</a>
+            </div>
+        </div>
+    </main>
+
+    <div th:replace="~{admin/fragment/footer :: footer}"></div>
+</body>
+</html> 
