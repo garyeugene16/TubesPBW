@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Data</title>
+  
+  <link rel="stylesheet" href="/css/admin/add_data.css">
+  <link rel="stylesheet" href="/css/admin/admin.css">
+</head>
+<body>
+  <!-- Header -->
+  <div th:replace="~{admin/fragment/header :: header}"></div>
+
+  <!-- Add Data Section -->
+  <section class="add-data">
+    <div class="form-container">
+      <h1>Add New Data</h1>
+
+      <input type="hidden" id="success-message" th:value="${success}" th:if="${success}" />
+      <input type="hidden" id="error-message" th:value="${error}" th:if="${error}" />
+
+      <!-- Buttons to Switch Forms -->
+      <div class="button-group">
+        <button id="btn-add-artist" class="btn">Add Artist</button>
+        <button id="btn-add-show" class="btn">Add Show</button>
+        <!-- <button id="btn-add-setlist">Add Setlist</button> -->
+      </div>
+
+      <!-- Add Artist Form -->
+      <form id="add-artist-form" th:action="@{/add-artist}" method="post" class="hidden">
+        <h2>Add Artist</h2>
+        <label for="artist-name">Artist Name:</label>
+        <input type="text" name="artistName" id="artist-name" required>
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- Add Show Form -->
+        <form id="add-show-form" th:action="@{/add-show}" method="post" class="hidden">
+            <h2>Add Show</h2>
+            <label for="artist-id">Select Artist:</label>
+            <select id="artist-id" name="artistName" required>
+            <option value="" disabled selected>Select an Artist</option>
+            <option th:each="artist : ${artists}" th:value="${artist.artist_id}" th:text="${artist.name}"></option>
+            <!-- Artist options will be added dynamically -->
+            </select>
+        
+            <label for="venue">Venue:</label>
+            <input type="text" id="venue" name="venue" required>
+        
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+        
+            <button type="submit">Submit</button>
+        </form>
+  
+        <!-- Menghilangkan Form Add Setlist -->
+        <!-- <form id="add-setlist-form" th:action="@{/add-setlist}" method="post" class="hidden">
+            <h2>Add Setlist</h2>
+            <label for="artist-id">Select Artist:</label>
+            <select id="artist-id" name="artistName" required>
+            <option value="" disabled selected>Select an Artist</option>
+            <option th:each="artist : ${artists}" th:value="${artist.artist_id}" th:text="${artist.name}"></option>
+            Artist options will be added dynamically
+            </select>
+
+            <label for="show-id">Select Show:</label>
+            <select id="show-id" name="id" th:if="${selectedArtist}" required>
+            <option value="" disabled selected>Select a Show</option>
+            <option th:each="show : ${showsForSelectedArtist}" th:value="${show.show_id}" th:text="${show.name}"></option>
+            Show options will be added dynamically
+            </select>
+        
+            <label for="song-title">Song Title:</label>
+            <input type="text" id="song-title" name="songTitle" required>
+
+            <label for="song-order">Song Order:</label>
+            <input type="text" id="song-order" name="songOrder" required>
+        
+            <label for="proof">Proof (optional):</label>
+            <input type="file" id="proof" accept="image/*">
+        
+            <button type="submit">Submit</button>
+        </form> -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div th:replace="~{admin/fragment/footer :: footer}"></div>
+
+  <script src="/scripts/add_data.js"></script>
+</body>
+</html>

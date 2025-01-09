@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistik</title>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <link rel="stylesheet" href="/css/admin/statistics.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div th:replace="~{admin/fragment/header :: header}"></div>
+
+    <main class="statistics-dashboard">
+        <div class="greetings">
+            <h1>Statistik</h1>
+        </div>
+        
+        <div class="dashboard-cards">
+            <div class="card">
+                <h2>Jumlah Show per Bulan</h2>
+                <canvas id="showChart"></canvas>
+            </div>
+            <div class="card">
+                <h2>Jumlah Setlist per Bulan</h2>
+                <canvas id="setlistChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <div th:replace="~{admin/fragment/footer :: footer}"></div>
+
+    <script th:inline="javascript">
+        const showStats = /*[[${showStats}]]*/ [];
+        const setlistStats = /*[[${setlistStats}]]*/ [];
+
+        // Fungsi untuk memformat data untuk Chart.js
+        function prepareChartData(stats) {
+            const labels = stats.map(item => item.month);
+            const data = stats.map(item => item.count);
+            return { labels, data };
+        }
+
+        // Buat grafik show
+        const showData = prepareChartData(showStats);
+        new Chart(document.getElementById('showChart'), {
+            type: 'bar',
+            data: {
+                labels: showData.labels,
+                datasets: [{
+                    label: 'Jumlah Show',
+                    data: showData.data,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+
+        // Buat grafik setlist
+        const setlistData = prepareChartData(setlistStats);
+        new Chart(document.getElementById('setlistChart'), {
+            type: 'bar',
+            data: {
+                labels: setlistData.labels,
+                datasets: [{
+                    label: 'Jumlah Setlist',
+                    data: setlistData.data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -110,23 +110,19 @@ header nav a:hover {
   gap: 16px;
   list-style: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .search-results .grid ul li {
-  width: 450px; /* menampilkan secara horizontal */
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  transition: box-shadow 0.3s, transform 0.2s;
-  padding: 10px;
-  box-sizing: border-box; /* agar padding + width = total 240px */
+  flex: 1 1 calc(25% - 16px);
+  /* Empat elemen per baris di layar besar */
+  max-width: calc(25% - 16px);
+  /* Maksimal lebar tiap elemen */
+  box-sizing: border-box;
 }
 
-
 .search-results .card {
-  /* border: 1px solid #ddd; */
+  border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
@@ -152,13 +148,15 @@ header nav a:hover {
 
 @media screen and (max-width: 768px) {
   .search-results .grid ul li {
-    width: calc(50% - 16px); /* Dua elemen per baris untuk layar sedang */
+    flex: 1 1 calc(50% - 16px);
+    /* Dua elemen per baris di layar sedang */
   }
 }
 
 @media screen and (max-width: 480px) {
   .search-results .grid ul li {
-    width: 100%; /* Satu elemen per baris untuk layar kecil */
+    flex: 1 1 100%;
+    /* Satu elemen per baris di layar kecil */
   }
 }
 

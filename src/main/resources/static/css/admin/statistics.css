@@ -1,0 +1,32 @@
+.greetings {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.statistics-dashboard {
+    padding: 2rem;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+canvas {
+    width: 100% !important;
+    height: 300px !important;
+} 

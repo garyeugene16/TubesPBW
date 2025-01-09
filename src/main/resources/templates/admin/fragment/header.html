@@ -1,10 +1,26 @@
-<header>
-    <h1>Header Fragment</h1>
-    <nav>
-      <ul>
-        <li><a th:href="@{/}">Home</a></li>
-        <li><a th:href="@{/search}">Search</a></li>
-        <li><a th:href="@{/login}">Login</a></li>
-      </ul>
-    </nav>
-</header>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <header th:fragment="header">
+        <nav class="admin-nav">
+            <div styleclass="logo">
+                <a href="/admin/home-admin" style="text-decoration:none;color:white;">
+                  <h2>SetListKonser</h2>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/admin/home-admin">Home</a></li>
+                <li><a href="/admin/search-admin">Search</a></li>
+                <li><a href="/admin/add-data">Add Data</a></li>
+                <li><a href="/admin/users">Kelola Pengguna</a></li>
+                <li><a href="/admin/reports">Laporan</a></li>
+                <li><a href="/admin/statistics">Statistik</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

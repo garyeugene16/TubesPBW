@@ -1,0 +1,45 @@
+.edit-user {
+    display: flex;
+    flex-direction: column; /* Atur elemen dalam kolom */
+    justify-content: center; /* Pusatkan secara vertikal */
+    align-items: center; /* Pusatkan secara horizontal */
+}
+
+.user-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width:300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opsional */
+}
+
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input, select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+/* .user-card{
+    font-size: 20px;
+    width: 300px;
+    display:flex;
+    background-color: white;
+    border-radius: 10px;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+} */
