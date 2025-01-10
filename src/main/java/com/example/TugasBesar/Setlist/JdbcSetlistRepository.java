@@ -44,12 +44,6 @@ public class JdbcSetlistRepository implements SetlistRepository {
         return count != null && count > 0;
     }
 
-    // @Override
-    // public List<Setlist> findByShowId(int showId) {
-    //     String sql = "SELECT * FROM setlists WHERE show_id = ?";
-    //     return jdbcTemplate.query(sql, this::mapRowToSetlist, showId);
-    // }
-
     @Override
     public List<Setlist> findByShowId(int showId) {
         // Tambahkan ORDER BY song_order ASC agar urutan lagu sesuai kolom song_order
