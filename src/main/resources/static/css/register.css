@@ -1,7 +1,7 @@
 /* Reset and Basic Styling */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica;
     line-height: 1.6;
     color: #333;
     background: #f9f9f9;
@@ -19,7 +19,7 @@ body {
   
   /* Header */
   header {
-    background: #222;
+    background: #2c3e50;
     color: #fff;
     display: grid;
     grid-template-columns: auto auto;
@@ -46,7 +46,7 @@ body {
   }
   
   header nav a:hover {
-    color: #f90;
+    color: #004187;
   }
   
   /* Auth Container */
@@ -110,7 +110,7 @@ body {
   }
   
   button:hover {
-    background: #d97706;
+    background: #004187;
   }
   
   #toggleText {
@@ -134,7 +134,7 @@ body {
   
   /* Footer */
   footer {
-    background: #222;
+    background: #2c3e50;
     color: #fff;
     text-align: center;
     padding: 10px;
