@@ -1,7 +1,7 @@
 /* Reset and Basic Styling */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Helvetica;
   line-height: 1.6;
   color: #333;
 }
@@ -18,7 +18,7 @@ ul {
 
 /* Header */
 header {
-  background: #222;
+  background: #2c3e50;
   color: #fff;
   display: grid;
   grid-template-columns: auto auto;
@@ -45,7 +45,7 @@ header nav a {
 }
 
 header nav a:hover {
-  color: #f90;
+  color: #004187;
 }
 
 /* Search Bar Section */
@@ -71,7 +71,7 @@ header nav a:hover {
 }
 
 .search-bar button {
-  background: #f90;
+  background: #3498db;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -83,7 +83,7 @@ header nav a:hover {
 }
 
 .search-bar button:hover {
-  background: #d97706;
+  background: #004187;
 }
 
 /* Search Results Section */
@@ -164,7 +164,7 @@ header nav a:hover {
 
 /* Footer */
 footer {
-  background: #222;
+  background: #2c3e50;
   color: #fff;
   text-align: center;
   padding: 10px;
@@ -194,7 +194,7 @@ footer {
 }
 
 .pagination nav a:hover {
-  background-color: #007bff;
+  background-color: #004187;
   color: white;
 }
 

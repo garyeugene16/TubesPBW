@@ -1,7 +1,7 @@
 /* Reset and Basic Styling */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Helvetica;
   line-height: 1.6;
   color: #333;
 }
@@ -18,7 +18,7 @@ ul {
 
 /* Header */
 header {
-  background: #222;
+  background: #2c3e50;
   color: #fff;
   display: grid;
   grid-template-columns: auto auto;
@@ -45,7 +45,7 @@ header nav a {
 }
 
 header nav a:hover {
-  color: #f90;
+  color: #004187;
 }
 
 /* Search Bar Section */
@@ -71,7 +71,7 @@ header nav a:hover {
 }
 
 .search-bar button {
-  background: #f90;
+  background: #3498db;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -83,7 +83,7 @@ header nav a:hover {
 }
 
 .search-bar button:hover {
-  background: #d97706;
+  background: #004187;
 }
 
 /* Search Results Section */
@@ -110,19 +110,23 @@ header nav a:hover {
   gap: 16px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .search-results .grid ul li {
-  flex: 1 1 calc(25% - 16px);
-  /* Empat elemen per baris di layar besar */
-  max-width: calc(25% - 16px);
-  /* Maksimal lebar tiap elemen */
-  box-sizing: border-box;
+  width: 450px; /* menampilkan secara horizontal */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+  padding: 10px;
+  box-sizing: border-box; /* agar padding + width = total 240px */
 }
 
+
 .search-results .card {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
@@ -148,21 +152,19 @@ header nav a:hover {
 
 @media screen and (max-width: 768px) {
   .search-results .grid ul li {
-    flex: 1 1 calc(50% - 16px);
-    /* Dua elemen per baris di layar sedang */
+    width: calc(50% - 16px); /* Dua elemen per baris untuk layar sedang */
   }
 }
 
 @media screen and (max-width: 480px) {
   .search-results .grid ul li {
-    flex: 1 1 100%;
-    /* Satu elemen per baris di layar kecil */
+    width: 100%; /* Satu elemen per baris untuk layar kecil */
   }
 }
 
 /* Footer */
 footer {
-  background: #222;
+  background: #2c3e50;
   color: #fff;
   text-align: center;
   padding: 10px;
@@ -192,7 +194,7 @@ footer {
 }
 
 .pagination nav a:hover {
-  background-color: #007bff;
+  background-color: #004187;
   color: white;
 }
 
