@@ -1,5 +1,7 @@
-body{
-    font-family: Helvetica;
+/* Tambahkan wrapper untuk konten utama */
+.main-content {
+    flex: 1;
+    overflow: hidden;
 }
 
 .greetings {
@@ -33,4 +35,8 @@ body{
 canvas {
     width: 100% !important;
     height: 300px !important;
+}
+
+footer {
+    margin-top: auto;
 } 

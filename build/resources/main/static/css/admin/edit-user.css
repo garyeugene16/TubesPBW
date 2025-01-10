@@ -1,7 +1,3 @@
-body{
-    font-family: Helvetica;
-}
-
 .edit-user {
     display: flex;
     flex-direction: column; /* Atur elemen dalam kolom */

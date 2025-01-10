@@ -11,91 +11,93 @@
     <div th:replace="~{admin/fragment/header :: header}"></div>
 
     <!-- Section utama, pakai display:flex di CSS agar kontainer di tengah -->
-    <section class="edit-setlist">
-        <div class="content">
-            <h1>Edit Setlist</h1>
+    <div class="main-content">
+        <section class="edit-setlist">
+            <div class="content">
+                <h1>Edit Setlist</h1>
 
-            <!-- Tambah Lagu -->
-            <div class="section add-song">
-                <h3>Tambahkan Lagu</h3>
-                <form method="POST" action="/setlist/add" class="form">
-                    <input type="hidden" name="showId" th:value="${show.show_id}">
-                    <input type="text" name="songTitle" placeholder="Judul Lagu" required class="input">
-                    <input type="number" name="songOrder" placeholder="Urutan Lagu" required class="input">
-                    <button type="submit" class="btn btn-primary">Tambahkan Lagu</button>
-                </form>
-            </div>
+                <!-- Tambah Lagu -->
+                <div class="section add-song">
+                    <h3>Tambahkan Lagu</h3>
+                    <form method="POST" action="/setlist/add" class="form">
+                        <input type="hidden" name="showId" th:value="${show.show_id}">
+                        <input type="text" name="songTitle" placeholder="Judul Lagu" required class="input">
+                        <input type="number" name="songOrder" placeholder="Urutan Lagu" required class="input">
+                        <button type="submit" class="btn btn-primary">Tambahkan Lagu</button>
+                    </form>
+                </div>
 
-            <!-- Hapus Lagu
-            <div class="section delete-songs">
-                <h3>Delete Lagu</h3>
-                <ul class="song-list">
-                    <li th:each="song : ${setlist}" class="song-item">
-                        <span th:text="${song.song_title}" class="song-title"></span>
-                        <form method="POST" action="/setlist/delete" class="form-inline">
-                            <input type="hidden" name="setlistId" th:value="${song.setlist_id}">
-                            <input type="hidden" name="showId" th:value="${show.show_id}">
-                            <button type="submit" class="btn btn-delete">Delete</button>
-                        </form>
-                    </li>
-                </ul>
-            </div> -->
-
-            <!-- Hapus Lagu: hanya muncul jika setlist tidak kosong -->
-            <div class="section delete-songs" 
-            th:if="${not #lists.isEmpty(setlist)}">
-            <h3>Delete Lagu</h3>
-            <ul class="song-list">
-            <li th:each="song : ${setlist}" class="song-item">
-                <span th:text="${song.song_title}" class="song-title"></span>
-                <form method="POST" action="/setlist/delete" class="form-inline">
-                    <input type="hidden" name="setlistId" th:value="${song.setlist_id}">
-                    <input type="hidden" name="showId" th:value="${show.show_id}">
-                    <button type="submit" class="btn btn-delete">Delete</button>
-                </form>
-            </li>
-            </ul>
-            </div>
-
-            <!-- Update Urutan Lagu
-            <div class="section update-order">
-                <h3>Update Urutan Lagu</h3>
-                <form method="POST" action="/setlist/update-all-orders" class="form update-order-form">
-                    <ul class="song-order-list">
-                        <li th:each="song : ${setlist}" class="song-order-item">    
+                <!-- Hapus Lagu
+                <div class="section delete-songs">
+                    <h3>Delete Lagu</h3>
+                    <ul class="song-list">
+                        <li th:each="song : ${setlist}" class="song-item">
                             <span th:text="${song.song_title}" class="song-title"></span>
-                            <input type="hidden" name="showId" th:value="${show.show_id}">
-                            <input type="hidden" name="setlistIds" th:value="${song.setlist_id}">
-                            <input type="number" name="songOrders" th:value="${song.song_order}" class="input order-input">
+                            <form method="POST" action="/setlist/delete" class="form-inline">
+                                <input type="hidden" name="setlistId" th:value="${song.setlist_id}">
+                                <input type="hidden" name="showId" th:value="${show.show_id}">
+                                <button type="submit" class="btn btn-delete">Delete</button>
+                            </form>
                         </li>
                     </ul>
-                    <button type="submit" class="btn btn-primary btn-update-order">Update Urutan</button>
-                </form>
-            </div> -->
+                </div> -->
 
-            <!-- Update Urutan Lagu: hanya muncul jika setlist tidak kosong -->
-            <div class="section update-order" 
-            th:if="${not #lists.isEmpty(setlist)}">
-            <h3>Update Urutan Lagu</h3>
-            <form method="POST" action="/setlist/update-all-orders" class="form update-order-form">
-            <ul class="song-order-list">
-                <li th:each="song : ${setlist}" class="song-order-item">    
+                <!-- Hapus Lagu: hanya muncul jika setlist tidak kosong -->
+                <div class="section delete-songs" 
+                th:if="${not #lists.isEmpty(setlist)}">
+                <h3>Delete Lagu</h3>
+                <ul class="song-list">
+                <li th:each="song : ${setlist}" class="song-item">
                     <span th:text="${song.song_title}" class="song-title"></span>
-                    <input type="hidden" name="showId" th:value="${show.show_id}">
-                    <input type="hidden" name="setlistIds" th:value="${song.setlist_id}">
-                    <input type="number" name="songOrders" th:value="${song.song_order}" class="input order-input">
+                    <form method="POST" action="/setlist/delete" class="form-inline">
+                        <input type="hidden" name="setlistId" th:value="${song.setlist_id}">
+                        <input type="hidden" name="showId" th:value="${show.show_id}">
+                        <button type="submit" class="btn btn-delete">Delete</button>
+                    </form>
                 </li>
-            </ul>
-            <button type="submit" class="btn btn-primary btn-update-order">Update Urutan</button>
-            </form>
-            </div>
+                </ul>
+                </div>
 
-            <!-- Navigasi Kembali -->
-            <div class="navigation">
-                <a th:href="@{/admin/show(id=${show.show_id})}" class="btn btn-back">Back to Show Details</a>
+                <!-- Update Urutan Lagu
+                <div class="section update-order">
+                    <h3>Update Urutan Lagu</h3>
+                    <form method="POST" action="/setlist/update-all-orders" class="form update-order-form">
+                        <ul class="song-order-list">
+                            <li th:each="song : ${setlist}" class="song-order-item">    
+                                <span th:text="${song.song_title}" class="song-title"></span>
+                                <input type="hidden" name="showId" th:value="${show.show_id}">
+                                <input type="hidden" name="setlistIds" th:value="${song.setlist_id}">
+                                <input type="number" name="songOrders" th:value="${song.song_order}" class="input order-input">
+                            </li>
+                        </ul>
+                        <button type="submit" class="btn btn-primary btn-update-order">Update Urutan</button>
+                    </form>
+                </div> -->
+
+                <!-- Update Urutan Lagu: hanya muncul jika setlist tidak kosong -->
+                <div class="section update-order" 
+                th:if="${not #lists.isEmpty(setlist)}">
+                <h3>Update Urutan Lagu</h3>
+                <form method="POST" action="/setlist/update-all-orders" class="form update-order-form">
+                <ul class="song-order-list">
+                    <li th:each="song : ${setlist}" class="song-order-item">    
+                        <span th:text="${song.song_title}" class="song-title"></span>
+                        <input type="hidden" name="showId" th:value="${show.show_id}">
+                        <input type="hidden" name="setlistIds" th:value="${song.setlist_id}">
+                        <input type="number" name="songOrders" th:value="${song.song_order}" class="input order-input">
+                    </li>
+                </ul>
+                <button type="submit" class="btn btn-primary btn-update-order">Update Urutan</button>
+                </form>
+                </div>
+
+                <!-- Navigasi Kembali -->
+                <div class="navigation">
+                    <a th:href="@{/admin/show(id=${show.show_id})}" class="btn btn-back">Back to Show Details</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <div th:replace="~{admin/fragment/footer :: footer}"></div>

@@ -9,23 +9,24 @@
 </head>
 <body>
     <div th:replace="~{admin/fragment/header :: header}"></div>
-
-    <main class="statistics-dashboard">
-        <div class="greetings">
-            <h1>Statistik</h1>
-        </div>
-        
-        <div class="dashboard-cards">
-            <div class="card">
-                <h2>Jumlah Show per Bulan</h2>
-                <canvas id="showChart"></canvas>
+    <div class="main-content">
+        <main class="statistics-dashboard">
+            <div class="greetings">
+                <h1>Statistik</h1>
             </div>
-            <div class="card">
-                <h2>Jumlah Setlist per Bulan</h2>
-                <canvas id="setlistChart"></canvas>
+            
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h2>Jumlah Show per Bulan</h2>
+                    <canvas id="showChart"></canvas>
+                </div>
+                <div class="card">
+                    <h2>Jumlah Setlist per Bulan</h2>
+                    <canvas id="setlistChart"></canvas>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <div th:replace="~{admin/fragment/footer :: footer}"></div>
 

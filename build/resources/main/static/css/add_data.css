@@ -1,10 +1,22 @@
 /* Reset and Basic Styling */
 body {
-    margin: 0;
-    font-family: Helvetica;
-    line-height: 1.6;
-    color: #333;
-  }
+  font-family: Helvetica;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+  display: none; 
+}
+
+.main-content {
+  flex: 1;
+  background: url('/images/concert-bg.jpeg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
   a {
     text-decoration: none;
     color: inherit;
@@ -73,7 +85,7 @@ body {
     padding: 40px 20px;
     display: grid;
     place-items: center;
-    background: url('/images/concert-bg.jpeg') no-repeat center center/cover;
+    /* background: url('/images/concert-bg.jpeg') no-repeat center center/cover; */
   }
   
   .form-container {
@@ -123,6 +135,13 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
   }
+  select{
+    width: auto;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
   
   input:focus {
     border-color: #f90;

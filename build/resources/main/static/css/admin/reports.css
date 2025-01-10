@@ -1,11 +1,6 @@
-/* General Body Styling */
-body {
-    font-family: 'Helvetica', Arial, sans-serif;
-    background-color: #f9f9f9; /* Warna latar belakang lembut */
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333; /* Warna teks utama */
+/* Tambahan wrapper untuk konten utama */
+.main-content {
+    flex: 1;
 }
 
 /* Container for Report Cards */
@@ -78,11 +73,8 @@ input[type="date"]:focus {
     padding: 2rem;
 }
 
-h1, h2, h3 {
-    color: #2c3e50;
+
+footer {
+    margin-top: auto;
 }
 
-p {
-    margin: 0.5rem 0;
-    color: #555;
-}

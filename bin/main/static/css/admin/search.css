@@ -1,9 +1,6 @@
-/* Reset and Basic Styling */
-body {
-  margin: 0;
-  font-family: Helvetica;
-  line-height: 1.6;
-  color: #333;
+/* Tambahan wrapper untuk konten utama */
+.main-content {
+  flex: 1;
 }
 
 a {
@@ -14,38 +11,6 @@ a {
 ul {
   list-style: none;
   padding: 0;
-}
-
-/* Header */
-header {
-  background: #2c3e50;
-  color: #fff;
-  display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  padding: 10px 20px;
-}
-
-header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-header nav ul {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 20px;
-  justify-content: end;
-}
-
-header nav a {
-  color: #fff;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-header nav a:hover {
-  color: #004187;
 }
 
 /* Search Bar Section */
@@ -164,6 +129,7 @@ header nav a:hover {
 
 /* Footer */
 footer {
+  margin-top: auto;
   background: #2c3e50;
   color: #fff;
   text-align: center;
