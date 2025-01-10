@@ -54,6 +54,8 @@ public class JdbcShowRepository implements ShowRepository {
         return (count != null && count > 0);
     }
 
+    
+
     private Show mapRowToShow(ResultSet resultSet, int rowNum) throws SQLException {
         return new Show(
             resultSet.getInt("show_id"),
@@ -64,5 +66,13 @@ public class JdbcShowRepository implements ShowRepository {
             resultSet.getString("created_at"),
             resultSet.getString("name")
         );
+    }
+
+    @Override
+    public void updateImagePath(int showId, String imagePath) {
+        String sql = "UPDATE shows SET image_path = ? WHERE show_id = ?";
+
+        // Eksekusi query UPDATE dengan parameter yang diberikan
+        jdbcTemplate.update(sql, imagePath, showId);
     }
 }

@@ -140,7 +140,8 @@ public class JdbcAdminRepository implements AdminRepository {
                 resultSet.getString("date"),
                 resultSet.getString("created_by"),
                 resultSet.getString("created_at"),
-                resultSet.getString("name"));
+                resultSet.getString("name")
+                );
     }
 
     private Setlist mapRowToSetlist(ResultSet resultSet, int rowNum) throws SQLException {
