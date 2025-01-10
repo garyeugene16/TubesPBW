@@ -34,4 +34,9 @@ public class ShowService {
     public int deleteShow(int id) {
         return showRepository.deleteById(id);
     }
+
+    // Method untuk update path gambar
+    public void updateImagePath(int showId, String imagePath) {
+        showRepository.updateImagePath(showId, imagePath);
+    }
 }

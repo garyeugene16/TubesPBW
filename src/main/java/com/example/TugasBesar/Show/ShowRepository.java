@@ -11,4 +11,5 @@ public interface ShowRepository {
     public int update(Show show);
     public int deleteById(int id);
     boolean isCreatedBy(int showId, String username);
+    public void updateImagePath(int showId, String imagePath);
 }

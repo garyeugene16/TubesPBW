@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.TugasBesar.User.User;
 import com.example.TugasBesar.User.UserService;
@@ -11,10 +12,13 @@ import com.example.TugasBesar.Artist.Artist;
 import com.example.TugasBesar.Member.MemberService;
 import com.example.TugasBesar.Setlist.Setlist;
 import com.example.TugasBesar.Show.Show;
+import com.example.TugasBesar.Show.ShowService;
 import com.example.TugasBesar.Artist.ArtistService;
 
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
@@ -38,6 +42,9 @@ public class AdminController {
 
     @Autowired
     private ArtistService artistService;
+
+    @Autowired
+    private ShowService showService;
 
     @GetMapping("/home-admin")
     public String home() {
@@ -184,5 +191,57 @@ public class AdminController {
         model.addAttribute("setlistStats", adminService.getSetlistStatistics());
         return "admin/statistics";
     }
+
+    // @PostMapping("/upload-image")
+    // public String uploadImage(@RequestParam("image") MultipartFile image, @RequestParam("showId") int showId) throws IOException {
+    //     // Mendapatkan direktori kerja aplikasi
+    //     String uploadDir = System.getProperty("user.dir") + "/upload/";
+
+    //     // Membuat folder jika belum ada
+    //     File directory = new File(uploadDir);
+    //     if (!directory.exists()) {
+    //         directory.mkdirs(); // Membuat folder jika belum ada
+    //     }
+
+    //     // Menentukan jalur untuk menyimpan gambar
+    //     String imagePath = "/upload/" + image.getOriginalFilename();
+
+    //     // Menyimpan gambar ke folder server
+    //     File destinationFile = new File(uploadDir + image.getOriginalFilename());
+    //     image.transferTo(destinationFile);
+
+    //     // Hanya memperbarui path gambar di database
+    //     showService.updateImagePath(showId, imagePath);
+
+    //     // Redirect ke halaman detail show setelah upload
+    //     return "redirect:/admin/show?id=" + showId;
+    // }
+
+    @PostMapping("/upload-image")
+    public String uploadImage(@RequestParam("image") MultipartFile image, @RequestParam("showId") int showId) throws IOException {
+        // Mendapatkan direktori kerja aplikasi dan menentukan folder upload di dalam folder static
+        String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/upload/";
+
+        // Membuat folder jika belum ada
+        File directory = new File(uploadDir);
+        if (!directory.exists()) {
+            directory.mkdirs(); // Membuat folder jika belum ada
+        }
+
+        // Menentukan jalur untuk menyimpan gambar
+        String imagePath = "/upload/" + image.getOriginalFilename();
+
+        // Menyimpan gambar ke folder server
+        File destinationFile = new File(uploadDir + image.getOriginalFilename());
+        image.transferTo(destinationFile);
+
+        // Hanya memperbarui path gambar di database
+        showService.updateImagePath(showId, imagePath);
+
+        // Redirect ke halaman detail show setelah upload
+        return "redirect:/admin/show?id=" + showId;
+    }
+
+
 
 }
