@@ -31,12 +31,6 @@ public class JdbcMemberRepository implements MemberRepository {
         return jdbcTemplate.queryForObject(sql, this::mapRowToShow, show_id);
     }
 
-    // @Override
-    // public List<Setlist> findSetlistByShowId(int show_id) {
-    //     String sql = "SELECT * FROM setlists WHERE show_id = ?";
-    //     return jdbcTemplate.query(sql, this::mapRowToSetlist, show_id);
-    // }
-
     @Override
     public List<Show> findShowsByKeywordWithPagination(String keyword, int offset, int limit) {
         String sql = "SELECT s.show_id, s.artist_id, s.venue, s.date, s.created_by, s.created_at, a.name, s.image_path " +

@@ -53,7 +53,7 @@ public class AdminService {
         }
 
         List<Integer> showIds = shows.stream()
-                .map(Show::getShowId)
+                .map(Show::getShow_id)
                 .collect(Collectors.toList());
         List<Setlist> setlists = adminRepository.findSetlistsByShowIds(showIds);
 
@@ -76,11 +76,11 @@ public class AdminService {
 
             document.add(new Paragraph("Setlist:", headerFont));
             List<Setlist> showSetlists = setlists.stream()
-                    .filter(s -> s.getShowId() == show.getShowId())
+                    .filter(s -> s.getShow_id() == show.getShow_id())
                     .collect(Collectors.toList());
 
             for (Setlist setlist : showSetlists) {
-                document.add(new Paragraph(setlist.getSongOrder() + ". " + setlist.getSongTitle(), normalFont));
+                document.add(new Paragraph(setlist.getSong_order() + ". " + setlist.getSong_title(), normalFont));
             }
             document.add(new Paragraph("\n"));
         }

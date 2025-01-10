@@ -13,10 +13,6 @@ public class Show {
     private final String name;
     private String image_path;
 
-    public int getShowId() {
-        return show_id;
-    }
-
     // Setter
     public void setImagePath(String image_path) {
         this.image_path = image_path;

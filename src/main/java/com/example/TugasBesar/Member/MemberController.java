@@ -1,6 +1,5 @@
 package com.example.TugasBesar.Member;
 
-import java.net.http.HttpClient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +16,6 @@ import com.example.TugasBesar.Artist.ArtistService;
 import com.example.TugasBesar.Setlist.Setlist;
 import com.example.TugasBesar.Show.Show;
 
-import jakarta.servlet.http.HttpSession;
-
 @Controller
 @RequestMapping("/member")
 public class MemberController {
@@ -34,17 +31,12 @@ public class MemberController {
         return "member/home-member";
     }
 
-    // @GetMapping("/")
-    // public String index() {
-    //     return "member/home-member";
-    // }
-
     // Endpoint pencarian berdasarkan nama artis
     @GetMapping("/search")
     public String search(@RequestParam(value = "keyword", defaultValue = "") String keyword,
                          @RequestParam(value = "page", defaultValue = "0") int page,
                          Model model) {
-        int pageSize = 8; // Jumlah item per halaman
+        int pageSize = 9; // Jumlah item per halaman
 
         // Jika keyword kosong, jangan ambil data shows
         List<Show> shows = new ArrayList<>();
@@ -93,11 +85,6 @@ public class MemberController {
         model.addAttribute("setlist", setlist);
         return "member/show-detail-member"; // Template untuk detail show
     }
-
-    // @GetMapping("/add-data")
-    // public String addData(Model model) {
-    //     return "member/add-data"; // Template untuk hasil pencarian
-    // }
 
      @GetMapping("/add-data")
     public String addData(Model model) {

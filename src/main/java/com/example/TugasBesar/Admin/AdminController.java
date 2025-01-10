@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.TugasBesar.User.User;
-import com.example.TugasBesar.User.UserService;
 import com.example.TugasBesar.Artist.Artist;
 import com.example.TugasBesar.Member.MemberService;
 import com.example.TugasBesar.Setlist.Setlist;
@@ -15,7 +14,6 @@ import com.example.TugasBesar.Show.Show;
 import com.example.TugasBesar.Show.ShowService;
 import com.example.TugasBesar.Artist.ArtistService;
 
-import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import java.io.File;
 import java.io.IOException;
@@ -33,9 +31,6 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
-
-    @Autowired
-    private UserService userService;
 
     @Autowired
     private MemberService memberService;
@@ -83,7 +78,7 @@ public class AdminController {
             @RequestParam(value = "page", defaultValue = "0") int page,
             Model model) {
 
-        int pageSize = 8;
+        int pageSize = 9;
         List<Show> shows = new ArrayList<>();
         int totalPages = 0;
 
@@ -117,11 +112,6 @@ public class AdminController {
         model.addAttribute("setlist", setlist);
         return "admin/show-detail-member"; // Template untuk detail show
     }
-
-    // @GetMapping("/add-data")
-    // public String addData(Model model) {
-    // return "member/add-data"; // Template untuk hasil pencarian
-    // }
 
     @GetMapping("/add-data")
     public String addData(Model model) {
@@ -192,31 +182,6 @@ public class AdminController {
         return "admin/statistics";
     }
 
-    // @PostMapping("/upload-image")
-    // public String uploadImage(@RequestParam("image") MultipartFile image, @RequestParam("showId") int showId) throws IOException {
-    //     // Mendapatkan direktori kerja aplikasi
-    //     String uploadDir = System.getProperty("user.dir") + "/upload/";
-
-    //     // Membuat folder jika belum ada
-    //     File directory = new File(uploadDir);
-    //     if (!directory.exists()) {
-    //         directory.mkdirs(); // Membuat folder jika belum ada
-    //     }
-
-    //     // Menentukan jalur untuk menyimpan gambar
-    //     String imagePath = "/upload/" + image.getOriginalFilename();
-
-    //     // Menyimpan gambar ke folder server
-    //     File destinationFile = new File(uploadDir + image.getOriginalFilename());
-    //     image.transferTo(destinationFile);
-
-    //     // Hanya memperbarui path gambar di database
-    //     showService.updateImagePath(showId, imagePath);
-
-    //     // Redirect ke halaman detail show setelah upload
-    //     return "redirect:/admin/show?id=" + showId;
-    // }
-
     @PostMapping("/upload-image")
     public String uploadImage(@RequestParam("image") MultipartFile image, @RequestParam("showId") int showId) throws IOException {
         // Mendapatkan direktori kerja aplikasi dan menentukan folder upload di dalam folder static
@@ -241,7 +206,4 @@ public class AdminController {
         // Redirect ke halaman detail show setelah upload
         return "redirect:/admin/show?id=" + showId;
     }
-
-
-
 }

@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.TugasBesar.Show.Show;
-
 @Controller
 @RequestMapping("/setlist")
 public class SetlistController {
@@ -44,21 +42,6 @@ public class SetlistController {
         setlistService.deleteSong(setlistId, username, role);
         return "redirect:/member/show?id=" + showId;
     }
-
-    // Udah jalan tapi 1-1
-    // @PostMapping("/update-order")
-    // public String updateSongOrder(@RequestParam("setlistId") int setlistId,
-    //                               @RequestParam("songOrder") int songOrder,
-    //                               @RequestParam("showId") int showId,
-    //                               HttpSession session) {
-    //     String username = (String) session.getAttribute("username");
-    //     String role = (String) session.getAttribute("role");
-    //     if (role == null) {
-    //         return "redirect:/login"; // Redirect ke login jika role null
-    //     }
-    //     setlistService.updateSongOrder(setlistId, songOrder, username, role);
-    //     return "redirect:/member/show?id=" + showId;
-    // }
 
     @PostMapping("/update-all-orders")
     public String updateAllSongOrders(@RequestParam("setlistIds") List<Integer> setlistIds,
