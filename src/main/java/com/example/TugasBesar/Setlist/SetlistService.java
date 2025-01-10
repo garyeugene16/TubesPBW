@@ -16,11 +16,11 @@ public class SetlistService {
     @Autowired
     private com.example.TugasBesar.Show.ShowRepository showRepository;
 
-    public void addSong(int showId, String songTitle, int songOrder, String username, String role) {
+    public void addSong(int showId, String songTitle, int songOrder, String youtubeUrl, String username, String role) {
         if (!canEditSetlist(showId, username, role)) {
             throw new IllegalArgumentException("You do not have permission to edit this setlist.");
         }
-        Setlist setlist = new Setlist(0, showId, songOrder, songTitle, username, null);
+        Setlist setlist = new Setlist(0, showId, songOrder, songTitle, username, null, youtubeUrl);
         setlistRepository.save(setlist);
     }
 

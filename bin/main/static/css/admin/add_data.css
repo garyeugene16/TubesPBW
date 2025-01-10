@@ -1,0 +1,122 @@
+/* Reset and Basic Styling */
+body {
+    margin: 0;
+    font-family: Helvetica;
+    line-height: 1.6;
+    color: #333;
+    height:1000px;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Buttons */
+  .btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #007bff; 
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+  }
+
+  .btn:hover {
+      background-color: black;
+  }
+
+  /* Untuk memusatkan button-group */
+  .button-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px; /* jarak antar tombol */
+      margin-top: 20px;
+  }
+
+  /* Add Data Section */
+  .add-data {
+    padding: 40px 20px;
+    display: grid;
+    place-items: center;
+    /* background: url('/images/concert-bg.jpeg') no-repeat center center/cover; */
+  }
+  
+  .form-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .form-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: grid;
+    gap: 20px;
+  }
+  
+  fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  input:focus {
+    border-color: #004187;
+  }
+  
+  button[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background: #004187;
+  }
+
+  .hidden {
+    display: none;
+  }
+  

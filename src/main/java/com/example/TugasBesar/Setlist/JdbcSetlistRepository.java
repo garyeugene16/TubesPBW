@@ -15,8 +15,8 @@ public class JdbcSetlistRepository implements SetlistRepository {
 
     @Override
     public void save(Setlist setlist) {
-        String sql = "INSERT INTO setlists (show_id, song_order, song_title, created_by) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, setlist.getShow_id(), setlist.getSong_order(), setlist.getSong_title(), setlist.getCreated_by());
+        String sql = "INSERT INTO setlists (show_id, song_order, song_title, created_by, youtube_url) VALUES (?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql, setlist.getShow_id(), setlist.getSong_order(), setlist.getSong_title(), setlist.getCreated_by(), setlist.getYoutube_url());
     }
 
     @Override
@@ -33,8 +33,8 @@ public class JdbcSetlistRepository implements SetlistRepository {
 
     @Override
     public void update(Setlist setlist) {
-        String sql = "UPDATE setlists SET song_order = ? WHERE setlist_id = ?";
-        jdbcTemplate.update(sql, setlist.getSong_order(), setlist.getSetlist_id());
+        String sql = "UPDATE setlists SET song_order = ?, youtube_url = ? WHERE setlist_id = ?";
+        jdbcTemplate.update(sql, setlist.getSong_order(), setlist.getYoutube_url(), setlist.getSetlist_id());
     }
 
     @Override
@@ -65,7 +65,8 @@ public class JdbcSetlistRepository implements SetlistRepository {
                 rs.getInt("song_order"),
                 rs.getString("song_title"),
                 rs.getString("created_by"),
-                rs.getTimestamp("created_at") != null ? rs.getTimestamp("created_at").toLocalDateTime().toString() : null
+                rs.getTimestamp("created_at") != null ? rs.getTimestamp("created_at").toLocalDateTime().toString() : null,
+                rs.getString("youtube_url")
         );
     }
 }

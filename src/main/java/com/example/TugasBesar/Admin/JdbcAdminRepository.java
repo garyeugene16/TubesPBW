@@ -151,7 +151,8 @@ public class JdbcAdminRepository implements AdminRepository {
                 resultSet.getInt("song_order"),
                 resultSet.getString("song_title"),
                 resultSet.getString("created_by"),
-                resultSet.getString("created_at"));
+                resultSet.getString("created_at"),
+                resultSet.getString("youtube_url"));
     }
 
     @Override

@@ -75,7 +75,8 @@ public class JdbcGuestRepository implements GuestRepository {
             resultSet.getInt("song_order"),
             resultSet.getString("song_title"),
             resultSet.getString("created_by"),
-            resultSet.getString("created_at")
+            resultSet.getString("created_at"),
+            resultSet.getString("youtube_url")
         );     
     }
 }

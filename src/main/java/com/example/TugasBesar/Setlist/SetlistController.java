@@ -21,13 +21,14 @@ public class SetlistController {
     public String addSong(@RequestParam("showId") int showId,
                           @RequestParam("songTitle") String songTitle,
                           @RequestParam("songOrder") int songOrder,
+                          @RequestParam("youtubeUrl") String youtubeUrl,
                           HttpSession session) {
         String username = (String) session.getAttribute("username");
         String role = (String) session.getAttribute("role");
         if (role == null) {
             return "redirect:/login"; // Redirect ke login jika role null
         }
-        setlistService.addSong(showId, songTitle, songOrder, username, role);
+        setlistService.addSong(showId, songTitle, songOrder, youtubeUrl, username, role);
         return "redirect:/member/show?id=" + showId;
     }
 

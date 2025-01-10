@@ -19,7 +19,12 @@
 
     <h2>Setlist</h2>
     <ul>
-        <li th:each="song : ${setlist}" th:text="${song.song_title}">Song Title</li>
+      <li th:each="song : ${setlist}">
+          <!-- Jika URL tersedia, tampilkan lagu sebagai tautan -->
+          <a th:if="${song.youtube_url}" th:href="${song.youtube_url}" target="_blank" th:text="${song.song_title}"></a>
+          <!-- Jika URL tidak tersedia, tampilkan lagu sebagai teks biasa -->
+          <span th:if="${song.youtube_url == null}" th:text="${song.song_title}"></span>
+      </li>
     </ul>
 
     <!-- Edit Setlist Button -->

@@ -2,10 +2,17 @@ body{
     font-family: Helvetica;
 }
 
+.show-background {
+    background-size: cover; /* Membuat gambar memenuhi area */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat; /* Tidak mengulang gambar */
+}
+
+
 /* Show Detail Section */
 .show-detail {
     padding: 40px 20px;
-    background: #f4f4f4;
+    /* background: white ; pantek kao*/
     display: grid;
     place-items: center;
 }
@@ -54,4 +61,4 @@ body{
 
 .btn:hover {
     background-color: #004187;
-}
+}   

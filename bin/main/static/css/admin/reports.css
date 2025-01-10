@@ -1,0 +1,88 @@
+/* General Body Styling */
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: #f9f9f9; /* Warna latar belakang lembut */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; /* Warna teks utama */
+}
+
+/* Container for Report Cards */
+.report-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Individual Report Card Styling */
+.report-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px; /* Membuat sudut lebih lembut */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow lebih halus */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover Effect for Report Card */
+.report-card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Shadow lebih intens saat hover */
+}
+
+/* Input Fields */
+input[type="date"] {
+    width: 100%; /* Lebar mengikuti kontainer */
+    max-width: 500px;
+    padding: 0.8rem;
+    margin-bottom: 1rem; /* Spasi antar elemen */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+/* Hover and Focus Effect for Input Fields */
+input[type="date"]:focus {
+    border-color: #004187; /* Warna border berubah saat fokus */
+    outline: none;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #3498db; /* Warna utama */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect for Buttons */
+.btn:hover {
+    background-color: #004187; /* Warna lebih gelap saat hover */
+    transform: scale(1.05); /* Efek zoom ringan saat hover */
+}
+
+/* Additional Styling for Alignment and Spacing */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+p {
+    margin: 0.5rem 0;
+    color: #555;
+}
