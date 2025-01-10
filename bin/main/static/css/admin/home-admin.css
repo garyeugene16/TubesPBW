@@ -1,0 +1,27 @@
+body{
+    font-family: Helvetica;
+}
+
+.greetings {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background-color: #004187;
+}

@@ -27,7 +27,7 @@ public class JdbcMemberRepository implements MemberRepository {
     @Override
     public Show findShowDetails(int show_id) {
         // String sql = "SELECT show_id, artist_id, venue, date, created_by, created_at FROM shows WHERE artist_id = ?";
-        String sql = "SELECT s.show_id, s.artist_id, s.venue, s.date, s.created_by, s.created_at, a.name FROM shows s JOIN artists a ON s.artist_id = a.artist_id WHERE s.show_id = ?";
+        String sql = "SELECT s.show_id, s.artist_id, s.venue, s.date, s.created_by, s.created_at, a.name, s.image_path FROM shows s JOIN artists a ON s.artist_id = a.artist_id WHERE s.show_id = ?";
         return jdbcTemplate.queryForObject(sql, this::mapRowToShow, show_id);
     }
 
@@ -39,10 +39,10 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public List<Show> findShowsByKeywordWithPagination(String keyword, int offset, int limit) {
-        String sql = "SELECT s.show_id, s.artist_id, s.venue, s.date, s.created_by, s.created_at, a.name " +
-                "FROM shows s JOIN artists a ON s.artist_id = a.artist_id " +
-                "WHERE s.venue ILIKE ? OR a.name ILIKE ? " +
-                "ORDER BY s.date DESC LIMIT ? OFFSET ?";
+        String sql = "SELECT s.show_id, s.artist_id, s.venue, s.date, s.created_by, s.created_at, a.name, s.image_path " +
+             "FROM shows s JOIN artists a ON s.artist_id = a.artist_id " +
+             "WHERE LOWER(s.venue) LIKE LOWER(?) OR LOWER(a.name) LIKE LOWER(?) " +
+             "ORDER BY s.date DESC LIMIT ? OFFSET ?";
         String searchKeyword = "%" + keyword + "%";
         return jdbcTemplate.query(sql, this::mapRowToShow, searchKeyword, searchKeyword, limit, offset);
     }
@@ -73,7 +73,7 @@ public class JdbcMemberRepository implements MemberRepository {
     }
     
     private Show mapRowToShow(ResultSet resultSet, int rowNum) throws SQLException {
-        return new Show(
+        Show show = new Show(
             resultSet.getInt("show_id"),
             resultSet.getInt("artist_id"),
             resultSet.getString("venue"),
@@ -81,7 +81,9 @@ public class JdbcMemberRepository implements MemberRepository {
             resultSet.getString("created_by"),
             resultSet.getString("created_at"),
             resultSet.getString("name")
-        );     
+        );   
+        show.setImagePath(resultSet.getString("image_path")); // Set nilai image_path
+        return show;  
     }
 
     private Setlist mapRowToSetlist(ResultSet resultSet, int rowNum) throws SQLException {
@@ -91,7 +93,8 @@ public class JdbcMemberRepository implements MemberRepository {
             resultSet.getInt("song_order"),
             resultSet.getString("song_title"),
             resultSet.getString("created_by"),
-            resultSet.getString("created_at")
+            resultSet.getString("created_at"),
+            resultSet.getString("youtube_url")
         );     
     }
 }
