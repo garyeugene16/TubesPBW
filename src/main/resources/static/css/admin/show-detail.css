@@ -1,5 +1,6 @@
-body{
-    font-family: Helvetica;
+/* Tambahan wrapper untuk konten utama */
+.main-content {
+    flex: 1;
 }
 
 .show-background {
@@ -61,4 +62,8 @@ body{
 
 .btn:hover {
     background-color: #004187;
+}   
+
+footer {
+    margin-top: auto;
 }   

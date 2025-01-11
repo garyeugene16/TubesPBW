@@ -9,11 +9,11 @@
 <body>
   <!-- Header -->
   <div th:replace="~{guest/fragment/header :: header}"></div>
-
+  <div class="main-content">
   <section class="search-bar">
     <h1 style="color: white;">Cari Artis, Konser, atau Lagu</h1>
     <form method="GET" action="/search">
-        <input type="text" name="keyword" placeholder="Masukkan nama artis, konser, atau lagu..." required />
+      <input type="text" name="keyword" th:value="${keyword}" placeholder="Masukkan nama artis, konser, atau lagu..." required />
         <button type="submit">Cari</button>
     </form>
 </section>
@@ -35,7 +35,7 @@
       </ul>
   </div>
 </section>
-
+</div>
 <section class="pagination">
   <nav>
     <!-- Tombol Previous -->

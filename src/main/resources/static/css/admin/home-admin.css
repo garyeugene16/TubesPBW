@@ -1,11 +1,20 @@
-body{
-    font-family: Helvetica;
+.main-content {
+    /* flex: 1 0 auto;
+    width: 100%;
+    padding-bottom: 60px; */
+    flex: 1;
+    background: url('/images/concert-bg.jpeg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .greetings {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    color: white;
+    font-size: 1.7rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.0);
 }
 
 .dashboard-cards {
@@ -16,12 +25,23 @@ body{
 }
 
 .card {
-    background: white;
+    /* background: white;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+    background: rgba(255, 255, 255, 0.625); /* Warna putih semi-transparan */
+    padding: 30px;
+    border-radius: 15px; /* Batas melengkung untuk tampilan lebih halus */
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.777);
+    backdrop-filter: blur(10px); /* Efek blur */
+    -webkit-backdrop-filter: blur(10px); /* Blur untuk kompatibilitas Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Garis batas semi-transparan */
 }
 
 .btn:hover {
     background-color: #004187;
 }
+.btn{
+    transition: background-color 0.3s ease;
+}
+
