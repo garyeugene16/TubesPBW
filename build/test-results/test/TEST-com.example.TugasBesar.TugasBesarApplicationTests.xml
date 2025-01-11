@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.TugasBesar.TugasBesarApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-10T18:17:05" hostname="HP-ENVY" time="4.157">
+<testsuite name="com.example.TugasBesar.TugasBesarApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-01-11T13:33:32" hostname="Garys-MacBook-Pro.local" time="0.944">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.TugasBesar.TugasBesarApplicationTests" time="4.157"/>
-  <system-out><![CDATA[01:16:43.705 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.TugasBesar.TugasBesarApplicationTests]: TugasBesarApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-01:16:44.421 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.TugasBesar.TugasBesarApplication for test class com.example.TugasBesar.TugasBesarApplicationTests
+  <testcase name="contextLoads()" classname="com.example.TugasBesar.TugasBesarApplicationTests" time="0.944"/>
+  <system-out><![CDATA[20:33:25.495 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.TugasBesar.TugasBesarApplicationTests]: TugasBesarApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:33:25.715 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.TugasBesar.TugasBesarApplication for test class com.example.TugasBesar.TugasBesarApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,26 +14,26 @@
 
  :: Spring Boot ::                (v3.4.0)
 
-2025-01-11T01:16:47.283+07:00  INFO 1608 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Starting TugasBesarApplicationTests using Java 17.0.6 with PID 1608 (started by ALBERT in C:\Users\ALBERT\Documents\TubesPBW)
-2025-01-11T01:16:47.289+07:00  INFO 1608 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : No active profile set, falling back to 1 default profile: "default"
-2025-01-11T01:16:50.906+07:00  INFO 1608 --- [TubesPBW] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-01-11T01:16:51.080+07:00  INFO 1608 --- [TubesPBW] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 118 ms. Found 0 JPA repository interfaces.
-2025-01-11T01:16:53.910+07:00  INFO 1608 --- [TubesPBW] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-01-11T01:16:54.333+07:00  INFO 1608 --- [TubesPBW] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
-2025-01-11T01:16:54.589+07:00  INFO 1608 --- [TubesPBW] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-01-11T01:16:56.620+07:00  INFO 1608 --- [TubesPBW] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-01-11T01:16:58.133+07:00  INFO 1608 --- [TubesPBW] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.DriverManagerDataSource@59018eed']
+2025-01-11T20:33:26.417+07:00  INFO 4586 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Starting TugasBesarApplicationTests using Java 17.0.6 with PID 4586 (started by garyeugene in /Users/garyeugene/Documents/Pemrograman Berbasis Web/git_final2/TubesPBW)
+2025-01-11T20:33:26.421+07:00  INFO 4586 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2025-01-11T20:33:27.789+07:00  INFO 4586 --- [TubesPBW] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-11T20:33:27.842+07:00  INFO 4586 --- [TubesPBW] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 0 JPA repository interfaces.
+2025-01-11T20:33:28.969+07:00  INFO 4586 --- [TubesPBW] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-11T20:33:29.096+07:00  INFO 4586 --- [TubesPBW] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2025-01-11T20:33:29.156+07:00  INFO 4586 --- [TubesPBW] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-11T20:33:29.503+07:00  INFO 4586 --- [TubesPBW] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-11T20:33:29.731+07:00  INFO 4586 --- [TubesPBW] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.DriverManagerDataSource@2eada095']
 	Database driver: undefined/unknown
-	Database version: 17.2
+	Database version: 14.14
 	Autocommit mode: undefined/unknown
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-01-11T01:17:00.336+07:00  INFO 1608 --- [TubesPBW] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-01-11T01:17:00.364+07:00  INFO 1608 --- [TubesPBW] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-01-11T01:17:01.735+07:00  WARN 1608 --- [TubesPBW] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-01-11T01:17:04.985+07:00  INFO 1608 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Started TugasBesarApplicationTests in 19.314 seconds (process running for 23.531)
+2025-01-11T20:33:30.117+07:00  INFO 4586 --- [TubesPBW] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-11T20:33:30.121+07:00  INFO 4586 --- [TubesPBW] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-11T20:33:30.787+07:00  WARN 4586 --- [TubesPBW] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-11T20:33:32.314+07:00  INFO 4586 --- [TubesPBW] [    Test worker] c.e.T.TugasBesarApplicationTests         : Started TugasBesarApplicationTests in 6.382 seconds (process running for 8.4)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -126,3 +126,18 @@ footer {
   padding: 10px;
   font-size: 0.9rem;
 }
+
+/* Slideshow Styling */
+@keyframes slideshow {
+  0% { background-image: url('/images/concert-bg.jpeg'); }
+  33% { background-image: url('/images/concert-bg2.jpeg'); }
+  66% { background-image: url('/images/concert-bg3.jpg'); }
+  100% { background-image: url('/images/concert-bg.jpeg'); }
+}
+
+.hero {
+  animation: slideshow 10s infinite ease-in-out; /* 9 detik untuk 3 gambar */
+  background-size: cover;
+  background-position: center;
+}
+
