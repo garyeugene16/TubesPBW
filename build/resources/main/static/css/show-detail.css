@@ -48,9 +48,15 @@ header nav a:hover {
 }
 
 /* Show Detail Section */
+.show-background {
+    background-size: cover; /* Membuat gambar memenuhi area */
+    background-position: center; /* Memusatkan gambar */
+    background-repeat: no-repeat; /* Tidak mengulang gambar */
+}
+
 .show-detail {
     padding: 40px 20px;
-    background: #f4f4f4;
+    /* background: #f4f4f4; */
     display: grid;
     place-items: center;
 }

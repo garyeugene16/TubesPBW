@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.TugasBesar.Setlist.Setlist;
 import com.example.TugasBesar.Show.Show;
+import com.example.TugasBesar.Member.MemberService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,9 @@ public class GuestController {
 
     @Autowired
     private GuestService guestService;
+
+    @Autowired
+    private MemberService memberService;
 
     @GetMapping("/home")
     public String home() {
@@ -72,8 +76,8 @@ public class GuestController {
      
     @GetMapping("/show")
     public String getShowDetails(@RequestParam("id") int show_id, Model model) {
-        Show show = guestService.getShowDetails(show_id); // Memanggil layanan untuk mendapatkan show
-        List<Setlist> setlist = guestService.getSetlistByShowId(show_id); // Mendapatkan setlist show
+        Show show = memberService.getShowDetails(show_id); // Memanggil layanan untuk mendapatkan show
+        List<Setlist> setlist = memberService.getSetlistByShowId(show_id); // Mendapatkan setlist show
         model.addAttribute("show", show);
         model.addAttribute("setlist", setlist);
         return "guest/show-detail"; // Template untuk detail show

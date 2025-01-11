@@ -141,3 +141,66 @@ footer {
   background-position: center;
 }
 
+/* About Us Section */
+.aboutus {
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.aboutus h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.aboutus p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify; /* Teks paragraf rata kiri-kanan */
+}
+
+.aboutus p strong {
+  color: #3498db;
+}
+
+.aboutus ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.aboutus ul li {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+  text-align: left;
+  padding-left: 20px;
+  position: relative;
+}
+
+.aboutus ul li:before {
+  content: '•';
+  color: #3498db;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.aboutus a {
+  color: #3498db;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.aboutus a:hover {
+  color: #004187;
+}
